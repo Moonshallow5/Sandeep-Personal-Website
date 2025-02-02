@@ -10,7 +10,7 @@ export const works=[
 
         Implemented scalable and maintainable infrastructure using Amazon Cloud Development Kit (CDK) to automate
 resource provisioning and streamline deployments`,
-        stack:['Tensorflow', 'Scikit-learn']
+        stack:['Vue.js', 'Vuetify','AWS','Postman API']
     },
 
     {
