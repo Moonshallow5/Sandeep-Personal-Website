@@ -11,9 +11,9 @@
       class="rounded-lg p-4"
       color="black"
       elevation="3"
-      style="width: 500px; height:300px; text-align:center; border-width: 1px; margin-top: 100px; margin: 20px 20px; border-color: aqua;"
+      style="width: 500px; height:300px; text-align:center; border-width: 1px;  border-color: aqua;"
     >
-      <h2 ref="name" class="name-gradient">Hi, I'm <span>Sandeep Singh</span></h2>
+      <h2 ref="name" class="name-gradient" style="margin: 20px 20px;">Hi, I'm <span>Sandeep Singh</span></h2>
 
       
       <p class="description-text" style="margin:30px 20px">I'm a passionate and self-started software engineer. I make products that are performant and beautiful.</p>
@@ -30,7 +30,7 @@
 
   
 
-    <v-container class="d-flex justify-center align-center" style=" margin-bottom: 300px; margin-top: 40px; ">
+    <v-container class="d-flex justify-center align-center" style=" margin-top: 40px; ">
       
       <div ref="scrollWrapper" class="scroll-wrapper" style=" margin-top: 280px;">
 
@@ -53,7 +53,7 @@
   
     </v-container>
 
-     <v-container class="container-section" style="margin: 20px 20px;">
+     <v-container class="container-section">
 
 
 
@@ -72,7 +72,7 @@
 
   <div class=" description-box"  id="box3">
     <h3>NLP Learning Specialisation</h3>
-    <p>Andrew Ng second ML Course (for more advanced people)</p>
+    <p>Andrew Ng third ML Course (for more advanced people)</p>
 
   </div>
 
@@ -90,20 +90,25 @@
 
 
 
-    <v-container class="d-flex justify-center align-center flex-column" style="min-height: 300px; ">
+    <v-container class="d-flex flex-column" style="min-height: 300px; ">
     <div class="about-me">
 
-      <h2> About me:  </h2>
+      <h2>About me:</h2>
 
-    <p>A recent grad from the University of Edinburgh with a Bachelors in Electronics and Computer Science.</p>
-      <p> Completed all of Andrew Ng Machine, Deep Learning and NLP specialisation accumalating over 20+ certificates </p>
+    <p>A recent grad from the University of Edinburgh with a Bachelors in Electronics and Computer Science.  Completed all of Andrew Ng Machine, Deep Learning and NLP specialisation accumalating over 20+ certificates</p>
+    <br>
+
+    <p>Current Full Stack Engineer, Future Data Scientist</p>
+    <br>
+    <p>Currently focusing on practicing LC and finding ways on exploring creativity by building things</p>
+      
 
 </div>
     </v-container>
-    <v-container class="d-flex justify-center align-center flex-column">
+    <v-container class="d-flex flex-column" >
       <div class="work-experience">
       <h2>Work Experience:</h2>
-      </div>
+    </div>
 
     <div class="work-container">
     <div
@@ -112,17 +117,44 @@
       ref="workRefs"
       class="work-item"
     >
-      <h3>{{ work.title }}</h3>
+      <h3><strong>{{ work.company }} </strong></h3>
       <p>{{ work.description }}</p>
+      <div class="stack-container">
+        <span v-for="(tech, i) in work.stack" :key="i" class="stack-item">
+          {{ tech }}
+        </span>
+      </div>
     </div>
   </div>
+
 </v-container>
 
+<v-container class="d-flex flex-column" >
+      <div class="work-experience">
+      <h2>My Projects</h2>
+    </div>
+    <div class="project-container">
+      <div
+        v-for="(project, index) in projects"
+        :key="project.id"
+        ref="projectRefs"
+        class="project-item"
+      >
 
-  
+      <img :src="project.image.url" :alt="project.title" class="project-image" />
+
+      <p class="project-title">{{ project.title }}</p>
+      <a :href="project.github" target="_blank" class="github-link">
+      <i class="fab fa-github"></i> <!-- FontAwesome GitHub icon -->
+    </a>
+
+    
+      </div>
+    </div>
 
 
 
+    </v-container>
   
 </template>
 
@@ -133,6 +165,7 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import { images } from "./certs";
 import { works } from "./work";
 import {ref} from 'vue';
+import { projects } from "./projects";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -144,6 +177,7 @@ export default{
     return {
       images,
       works,
+      projects,
 
 
   
@@ -155,10 +189,13 @@ export default{
     const scrollWrapper = this.$refs.scrollWrapper;
     const scrollContent = this.$refs.scrollContent;
     const spacer = this.$refs.spacer; // Get the spacer div
+    const spacer2 = document.createElement('div');
+    //spacer.style.height = scrollContent.scrollWidth+5100 + "px";
 
-// Set the spacer height equal to scrollWrapper height (prevents jump)
-//ScrollTrigger.refresh();
 
+
+//spacer2.style.height = 352+ 'vh'; // Set the height based on the content scroll width
+//document.body.appendChild(spacer2); // Add spacer to body or scrollWrapper if needed
 
       
       const tl = gsap.timeline({
@@ -171,6 +208,17 @@ export default{
         scrub: 1, // Smooth scroll effect
         pin: true, // Pin the container during scroll
     // Keep this for smoother pinning
+    pinSpacing:false,
+    onLeave: () => {
+      if (scrollContent) {
+        scrollContent.style.position = "absolute"; // Change to absolute after scroll ends
+
+        scrollContent.style.paddingBottom = "0px"; // Reset padding after scroll ends
+      }
+    },
+    
+    
+   
         
       },
     })
@@ -223,8 +271,8 @@ export default{
             ease: "power2.out",
             scrollTrigger: {
               trigger: el,
-              start: "top 80%",
-              end: "top 60%",
+              start: "top 90%",
+              end: "top 85%",
               toggleActions: "play none none reverse",
             },
           }
@@ -232,21 +280,41 @@ export default{
       });
     })
 
+    this.$nextTick(() => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".project-container",
+          start: "top 80%",
+          end: "bottom top",
+          toggleActions: "play none none reverse",
+          scrub: 1, // Smooth transition as user scrolls
+        },
+      });
 
+      this.$refs.projectRefs.forEach((el, i) => {
+        tl.to(el, {
+          opacity: 1,
+          y: -i * 40, // Offsets each project upward slightly more than the previous one
+          rotate: i % 2 === 0 ? -6 : 6, // Alternate rotation for staggered effect
+          scale: 1,
+          duration: 2,
+          ease: "power2.out",
+          
 
-//    tl.to(scrollWrapper, {
-//     opacity:0,
-//   ease: "power1.inOut",
-   
-  
-//   scrollTrigger: {
-//     trigger: scrollWrapper,
-//     start:' +=${scrollContent.scrollWidth} +5000', // Trigger after images scroll
-//     end: "+=${scrollContent.scrollWidth} +6000",
-//     scrub: 1,
-//     pin:false,
-//   },
-// });
+          scrollTrigger: {
+      trigger: el,
+      start: `top ${85 - i * 70}%`, // Delays when each project stacks
+      end: "top 50%",
+      toggleActions: "play none none reverse",
+      scrub: 2, // Smooth stacking effect
+      onUpdate: (self) => {
+        el.style.zIndex = Math.round(self.progress * 100);
+      }, // Updates z-index based on scroll progress
+    },
+
+        }); // Overlapping animation for smoother stacking
+      });
+    });
 
 
     this.typewriter()
@@ -303,13 +371,83 @@ export default{
 </script>
 <style scoped>
 
-.body{
-  overflow-y: hidden;
+body, html {
+  overflow-x: hidden; /* Prevent horizontal overflow */
+  overflow-y: scroll; /* Force vertical scrollbar */
 }
-.work-experience h2{
+
+.stack-container {
+  margin-top: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.stack-item {
+  background-color: yellow;
+  color: black;
+  padding: 6px 12px;
+  border-radius: 10px;
+  font-size: 10px;
+  font-weight: bold;
+  display: inline-block;
+}
+
+
+.work-experience h2 {
   align-self: flex-start;
-  
+ 
 }
+.project-container {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+
+  gap: -40px; /* Space between stacked projects */
+  align-items: center;
+  position: relative;
+
+}
+.project-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 10px;
+  text-align: center;
+  color: wheat;
+}
+
+.project-item {
+  width: 70%; /* Adequate width */
+  max-width: 500px; /* Prevent too wide */
+  height: 500px; /* Large height */
+  background: black;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  opacity: 0; /* Initially hidden for animation */
+  position: absolute;
+  transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+  pointer-events: auto;
+
+}
+.project-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+
+}
+.github-link {
+  position: relative;
+  z-index: 10; /* Keep it above stacked items */
+}
+
+
+
+
 .work-container {
   display: flex;
   flex-direction: column; /* Stack items vertically */
@@ -317,31 +455,57 @@ export default{
   gap: 20px;
   white-space: nowrap;
   padding: 20px;
+  margin: 30px 30px;
+  align-items: center;
+  justify-content: center;
+}
+.work-item h3{
+  margin:20px 20px;
+}
+.work-item:hover {
+  border: 2px solid rgba(255, 255, 255, 0.8); /* Light border */
+  box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5); /* Glowing effect */
 }
 .work-item {
-  width: 250px;
-  height: 150px;
-  background-color: black;
+  width: min(90vw, 700px); /* Max width of 1200px but responsive */
+  height: 250px; /* Allows content to adjust */
+  min-height: 150px; /* Ensures enough space */
+  background-color: transparent;
   border-radius: 10px;
-  padding: 20px;
+  margin: 20px 20px;
+  padding-left: 30px;
+  padding-right: 30px;
   opacity: 0; /* Initially hidden */
   transform: translateY(50px); /* Starts slightly lower */
   text-align: center;
+  word-wrap: break-word;
+  white-space: normal;
+  overflow-wrap: break-word;
+  border: 2px solid transparent; /* Initially no border */
+  transition: border 0.3s ease, box-shadow 0.3s ease;
 }
 
 .about-me h2 {
-  align-self: flex-start; /* Align heading to the left */
-  padding-left: 20px;
-  margin-bottom: 10px; /* Add spacing below the heading */
-}
-.about-me {
-  display: flex;
-  flex-direction: column;  /* Stack elements vertically */
-  align-items: center;
-}
-.about-section p {
-  text-align: justify; /* Center-align the paragraph */
+  align-self: flex-start;
+  padding-bottom: 20px;
+  padding-top: 50px;
+
   
+}
+.about-me{
+  max-width: 800px;  /* Limits text width */
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+ 
+}
+
+
+.about-me p {
+  align-self: flex-start;
+  font-family: articulat-cf, sans-serif;
+font-style: normal;
+font-weight: 100;
 }
 
 .description-box {
@@ -381,7 +545,7 @@ export default{
 }
 
 .certificates-container {
-  height: 870vh;
+  height: 950vh;
   overflow:visible;
   white-space: nowrap;
   width: max-content;
@@ -406,26 +570,7 @@ export default{
   
 
 }
-.about-me {
-  max-width: 800px;  /* Limits text width */
-  padding: 20px 20px;     /* Adds inner spacing */
-  text-align: center;
-  backdrop-filter: blur(1px);
-  
-}
 
-.about-me h2 {
-  font-family: "Poppins", sans-serif;
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 15px;
-}
-
-.about-me p {
-  font-family: articulat-cf, sans-serif;
-font-style: normal;
-font-weight: 100;
-}
 
 
 /* Rainbow gradient text style */
