@@ -1,7 +1,8 @@
-<!-- eslint-disable vue/html-self-closing -->
+<!-- eslint-disable vue/html-closing-bracket-spacing -->
 <!-- eslint-disable vue/max-attributes-per-line -->
-<!-- eslint-disable vue/multiline-html-element-content-newline -->
 <!-- eslint-disable vue/html-indent -->
+<!-- eslint-disable vue/html-self-closing -->
+<!-- eslint-disable vue/multiline-html-element-content-newline -->
 
 <template>
 
@@ -16,7 +17,7 @@
       <h2 ref="name" class="name-gradient" style="margin: 20px 20px;">Hi, I'm <span>Sandeep Singh</span></h2>
 
       
-      <p class="description-text" style="margin:30px 20px">I'm a passionate and self-started software engineer. I make products that are performant and beautiful.</p>
+      <p class="description-text" style="margin:30px 20px">I'm a passionate, self-started software engineer. I make products that are performant and beautiful. Building things is what I live for</p>
 
      I am also a <span ref="typewriter" class="typewriter name-gradient"></span><span class="cursor">_</span>
     </v-card>
@@ -26,29 +27,27 @@
     
     
   </v-container> 
+  <v-container class="d-flex " style="margin-top: 250px;">
 
-
-  
-
-    <v-container class="d-flex justify-center align-center" style=" margin-top: 40px; ">
-      
-      <div ref="scrollWrapper" class="scroll-wrapper" style=" margin-top: 280px;">
-
-        <h2>Certificates Achieved:</h2>
-        
-        
-        
-
-    <div ref="scrollContent" class="certificates-container">
-
-      <div v-for="image in images" :key="image.id" class="certificates">
-        <img :src="image.imgUrl " alt="yoyo" />
-
-      </div>
-    
+  <div class="certs">
+      <h2>Certificates:</h2>
     </div>
-  </div>
-  <div ref="spacer" class="spacer"></div>
+
+  </v-container>
+
+
+    <v-container class="d-flex justify-center align-center" style=" margin-top: 20px; ">
+        <div id="images-container">
+        <div
+          v-for="image in images"
+          :key="image.id"
+          ref="imageRefs"
+          class="image-container"
+        >
+        <img :src="image.imgUrl" alt="hello" />
+      </div>
+    </div>
+
 
   
     </v-container>
@@ -59,25 +58,42 @@
 
 
       <div class=" description-box"  id="box1">
+        <div class="heading-container">
     <h3>Machine Learning Specialisation</h3>
+    <a href="https://www.coursera.org/account/accomplishments/specialization/I2B4UDXUZXPU" target="_blank">
+    <i class="fas fa-arrow-up-right-from-square"></i>
+  </a>
+</div>
+
     <p>Andrew Ng first ML Course (for complete beginners)</p>
+    
 
   </div>
   
   <div class=" description-box"  id="box2">
+    <div class="heading-container">
     <h3>Deep Learning Specialisation</h3>
+    <a href="https://www.coursera.org/account/accomplishments/specialization/WO8RJLMC1ZDK" target="_blank">
+    <i class="fas fa-arrow-up-right-from-square"></i>
+  </a>
+  </div>
     <p>Andrew Ng second ML Course (for more advanced people)</p>
 
   </div>
 
   <div class=" description-box"  id="box3">
+    <div class="heading-container">
     <h3>NLP Learning Specialisation</h3>
+    <a href="https://www.coursera.org/account/accomplishments/specialization/LBL14C1Z3SD1" target="_blank">
+    <i class="fas fa-arrow-up-right-from-square"></i>
+  </a>
+  </div>
     <p>Andrew Ng third ML Course (for more advanced people)</p>
 
   </div>
 
      </v-container>
-     <v-container class="d-flex justify-center align-center flex-column" style="margin: 200px 50px;">
+     <v-container class="d-flex justify-center align-center flex-column" style="padding-top: 200px ">
 
       <h2> Woah that was a lot of certificates!</h2>
       <p>Let me first explain who I am</p>
@@ -90,7 +106,7 @@
 
 
 
-    <v-container class="d-flex flex-column" style="min-height: 300px; ">
+    <v-container class="d-flex flex-column">
     <div class="about-me">
 
       <h2>About me:</h2>
@@ -129,7 +145,7 @@
 
 </v-container>
 
-<v-container class="d-flex flex-column" >
+<v-container class="d-flex flex-column" style="padding-bottom: 800px;" >
       <div class="work-experience">
       <h2>My Projects</h2>
     </div>
@@ -143,10 +159,15 @@
 
       <img :src="project.image.url" :alt="project.title" class="project-image" />
 
+      
+
       <p class="project-title">{{ project.title }}</p>
+      <div class="github-container">
       <a :href="project.github" target="_blank" class="github-link">
       <i class="fab fa-github"></i> <!-- FontAwesome GitHub icon -->
     </a>
+  </div>
+    <p>{{ project.description }}</p>
 
     
       </div>
@@ -164,7 +185,6 @@ import gsap from "gsap"; // Import GSAP
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { images } from "./certs";
 import { works } from "./work";
-import {ref} from 'vue';
 import { projects } from "./projects";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -186,45 +206,34 @@ export default{
 
 
   mounted(){
-    const scrollWrapper = this.$refs.scrollWrapper;
-    const scrollContent = this.$refs.scrollContent;
-    const spacer = this.$refs.spacer; // Get the spacer div
-    const spacer2 = document.createElement('div');
-    //spacer.style.height = scrollContent.scrollWidth+5100 + "px";
+this.$nextTick(() => {
+      this.$refs.imageRefs.forEach((el, index) => {
+        gsap.fromTo(
+          el,
+          {
+            opacity: 0,
+            x: index % 2 === 0 ? -window.innerWidth : window.innerWidth, // Start from left/right
+          y: index < 3 ? -window.innerHeight / 2 : window.innerHeight / 2, // Start from top/bottom
+          rotate: index % 2 === 0 ? -30 : 30, // Alternate rotations
+          },
+          {
+            scrollTrigger: {
+              trigger: "#images-container",
+              start: "top 50%",
+              end: "+=100",
+              scrub: 1,
+              toggleActions: "play none none reverse",
 
-
-
-//spacer2.style.height = 352+ 'vh'; // Set the height based on the content scroll width
-//document.body.appendChild(spacer2); // Add spacer to body or scrollWrapper if needed
-
-      
-      const tl = gsap.timeline({
-        
-      scrollTrigger: {
-        trigger: scrollWrapper,
-        start: "top 30%", // Adjust where scrolling starts
-         end: () => `+=${scrollContent.scrollWidth} +5100`,
-        // Start when the container is at the top of the viewport
-        scrub: 1, // Smooth scroll effect
-        pin: true, // Pin the container during scroll
-    // Keep this for smoother pinning
-    pinSpacing:false,
-    onLeave: () => {
-      if (scrollContent) {
-        scrollContent.style.position = "absolute"; // Change to absolute after scroll ends
-
-        scrollContent.style.paddingBottom = "0px"; // Reset padding after scroll ends
-      }
-    },
-    
-    
-   
-        
-      },
-    })
-    tl.to(scrollContent, {
-      x: () => -11000, // Scroll left
-      ease: "power1.inOut",
+            },
+            opacity: 1,
+            x: 0, // Stagger positioning towards center
+            y: 0,
+            rotate: index % 2 === 0 ? -6 : 6, // Straighten images as they arrive
+            duration: 1.5,
+            ease: "power2.out",
+          }
+        );
+      });
     });
 
     const tlBoxes = gsap.timeline({
@@ -252,12 +261,11 @@ export default{
         })
         .to("#box3", {
             opacity: 1,
-            x: "60vw", // Moves to the center
+            x: "50vw", // Moves to the center
             rotate: 6,
             duration: 1,
         }, "-=0.5") // Starts slightly earlier
 
-        const workRefs = ref([]); // Store references to each work item
 
         this.$nextTick(() => {
       this.$refs.workRefs.forEach((el, i) => {
@@ -303,10 +311,13 @@ export default{
 
           scrollTrigger: {
       trigger: el,
-      start: `top ${85 - i * 70}%`, // Delays when each project stacks
-      end: "top 50%",
+      start: `top ${100 - i * 40}%`, // Delays when each project stacks
+      end: "top 100%",
       toggleActions: "play none none reverse",
-      scrub: 2, // Smooth stacking effect
+      scrub: true, // Smooth stacking effect
+      pinSpacing:true,
+      pin:true,
+      anticipatePin:1,
       onUpdate: (self) => {
         el.style.zIndex = Math.round(self.progress * 100);
       }, // Updates z-index based on scroll progress
@@ -328,7 +339,7 @@ export default{
   methods:{
 
     typewriter() {
-      const words = ["Full Stack", "Data Scientist", "Certificate Evangelist"];
+      const words = ["Full Stack Developer", "Data Scientist", "Certificate extravagant"];
       const typewriterEl = document.querySelector(".typewriter");
 
       // Blinking cursor effect
@@ -371,13 +382,19 @@ export default{
 </script>
 <style scoped>
 
-body, html {
-  overflow-x: hidden; /* Prevent horizontal overflow */
-  overflow-y: scroll; /* Force vertical scrollbar */
+body {
+  zoom: 3.0; /* Increases overall size */
+}
+.certs h2 {
+  align-self: flex-start;
+  padding-bottom: 20px;
+  padding-top: 50px;
+
+  
 }
 
 .stack-container {
-  margin-top: 8px;
+  margin-top: 20px;
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
@@ -401,10 +418,18 @@ body, html {
 .project-container {
   display: flex;
   flex-direction: column; /* Stack items vertically */
-
-  gap: -40px; /* Space between stacked projects */
-  align-items: center;
   position: relative;
+
+  
+  align-items: center;
+
+  border: 1px solid transparent; /* Ensures a base border exists */
+
+
+}
+.project-item:hover {
+  border-width: 1px;
+  border-color: aqua;
 
 }
 .project-title {
@@ -418,7 +443,7 @@ body, html {
 .project-item {
   width: 70%; /* Adequate width */
   max-width: 500px; /* Prevent too wide */
-  height: 500px; /* Large height */
+  height: auto; /* Large height */
   background: black;
   box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
   border-radius: 15px;
@@ -431,18 +456,33 @@ body, html {
   position: absolute;
   transition: transform 0.5s ease-out, opacity 0.5s ease-out;
   pointer-events: auto;
+  border: 1px solid transparent; /* Ensures a base border exists */
+  transition: transform 0.5s ease-in-out;
+
 
 }
-.project-image {
+.project-item img {
   width: 100%;
-  height: auto;
-  object-fit: cover;
+  height: min(100vh,370px);
   border-radius: 10px;
 
 }
 .github-link {
+  transition: transform 0.6s ease; /* Smooth transition */
+
+
   position: relative;
   z-index: 10; /* Keep it above stacked items */
+}
+
+.github-container{
+  transition: transform 0.6s ease;
+
+}
+
+.project-item:hover .github-container{
+  transform: scale(1.5); 
+
 }
 
 
@@ -488,7 +528,7 @@ body, html {
 .about-me h2 {
   align-self: flex-start;
   padding-bottom: 20px;
-  padding-top: 50px;
+
 
   
 }
@@ -497,6 +537,7 @@ body, html {
   display: flex;
   flex-direction: column;
   width: 100%;
+  padding-top: 40px;
  
 }
 
@@ -511,25 +552,50 @@ font-weight: 100;
 .description-box {
   position: absolute;
   opacity: 0;
-  width: 250px;
-  height: 150px;
+  width: min(90vw, 250px);
   background-color:black;
-  border-radius: 10px;
+  border-radius: 30px;
   padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   font-size: 16px;
+  text-align: center;
+  border: 2px solid transparent; /* Define border width and initial color */
+
+}
+.heading-container {
+  display: flex;
+  align-items: center; /* Aligns text and icon on the same line */
+  gap: 8px; /* Adjust spacing between the text and the icon */
+  
+}
+.description-box:hover{
+  border-width: 1px;
+  border-color: aqua;
+}
+.heading-container a{
+  font-size: 19px; /* Adjust spacing between the text and the icon */
+  text-decoration: none;
+  padding-right: 10px;
+  text-align: center;
+  justify-content: center;
+  transition: transform 0.6s ease; /* Smooth transition */
+
+}
+.description-box:hover .heading-container a {
+  transform: translateX(10px) rotate(10deg) scale(1.1); /* Example with multiple effects */
+  
 }
 #box1 {
   top: 50%;
-  left: -48vw; /* Start far left */
+  left: -35vw; /* Start far left */
   transform: translateY(-50%);
 }
 #box2 {
   top: 50%;
-  left: -25vw; /* Starts from the right */
+  left: -10vw; /* Starts from the right */
   transform: translateY(-50%);
   
 
@@ -538,36 +604,38 @@ font-weight: 100;
 
 #box3 {
   top: 50%;
-  left: 0vw; /* Starts from the right */
+  left: 15vw; /* Starts from the right */
   transform: translateY(-50%);
   
 
 }
+#images-container {
 
-.certificates-container {
-  height: 950vh;
-  overflow:visible;
-  white-space: nowrap;
-  width: max-content;
-  
-  display: flex;
-}
 
-.scroll-wrapper{
-
-  width: 200vw;
-  
-  overflow: hidden; /* Enable scrolling */
+display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  justify-content: center;
+  gap:-300px
 
 }
 
+.image-container {
 
-.certificates img {
-  width: 300px;
-  border-radius: 10px;
-  transition: transform 0.3s ease;
-  margin: 20px 400px;
-  
+
+  width: 300px; /* Adjust image size */
+  height: 200px;
+  transition: opacity 0.5s ease-out;
+}
+.image-container img {
+  width: 100%; /* Ensures image fits inside container */
+  height: 100%; /* Maintains aspect ratio */
+
+  gap:-200px;
+
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+  transform: scale(1.1); /* Slight zoom */
+
 
 }
 
