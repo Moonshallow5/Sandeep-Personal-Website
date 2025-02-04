@@ -9,10 +9,10 @@
   <v-container class="d-flex justify-center align-center" style="height: 50vh; padding-top: 200px; text-align: center; ">
     
     <v-card
-      class="rounded-lg p-4"
+      class="rounded-lg p-4 intro-table"
       color="black"
       elevation="3"
-      style="width: 500px; height:300px; text-align:center; border-width: 1px;  border-color: aqua;"
+      style="width: 500px; height:300px; text-align:center; border-width: 1px; "
     >
       <h2 ref="name" class="name-gradient" style="margin: 20px 20px;">Hi, I'm <span>Sandeep Singh</span></h2>
 
@@ -145,7 +145,7 @@
 
 </v-container>
 
-<v-container class="d-flex flex-column" style="padding-bottom: 800px;" >
+<v-container class="d-flex flex-column" style="padding-bottom: 2000px;" >
       <div class="work-experience">
       <h2>My Projects</h2>
     </div>
@@ -219,7 +219,7 @@ this.$nextTick(() => {
           {
             scrollTrigger: {
               trigger: "#images-container",
-              start: "top 50%",
+              start: "top 70%",
               end: "+=100",
               scrub: 1,
               toggleActions: "play none none reverse",
@@ -289,43 +289,42 @@ this.$nextTick(() => {
     })
 
     this.$nextTick(() => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: ".project-container",
-          start: "top 80%",
-          end: "bottom top",
-          toggleActions: "play none none reverse",
-          scrub: 1, // Smooth transition as user scrolls
-        },
-      });
+    // Keep first project static
+    gsap.set(this.$refs.projectRefs[0], { opacity: 1, y: 10 });
 
-      this.$refs.projectRefs.forEach((el, i) => {
-        tl.to(el, {
-          opacity: 1,
-          y: -i * 40, // Offsets each project upward slightly more than the previous one
-          rotate: i % 2 === 0 ? -6 : 6, // Alternate rotation for staggered effect
-          scale: 1,
-          duration: 2,
-          ease: "power2.out",
-          
+    // Animate remaining projects
+    this.$refs.projectRefs.forEach((el, i) => {
 
-          scrollTrigger: {
-      trigger: el,
-      start: `top ${100 - i * 40}%`, // Delays when each project stacks
-      end: "top 100%",
-      toggleActions: "play none none reverse",
-      scrub: true, // Smooth stacking effect
-      pinSpacing:true,
-      pin:true,
-      anticipatePin:1,
-      onUpdate: (self) => {
-        el.style.zIndex = Math.round(self.progress * 100);
-      }, // Updates z-index based on scroll progress
-    },
 
-        }); // Overlapping animation for smoother stacking
-      });
+        gsap.fromTo(el,
+            {
+                
+                opacity: 0,
+                y:10,
+            },
+            {
+                y: `-${i * 20}px`, // Moves upwards to stack on top
+                scale: 1,
+                opacity: 1,
+                duration: 5,
+                ease: "power1.in",
+                scrollTrigger: {
+                    trigger: el,
+                    start: `top 50%`, // Waits until 80% of the first container is seen
+                    end: "top 50%",
+                    toggleActions: "play none none reverse",
+                 
+                    scrub: 1,
+                    pin: true,
+                    onUpdate: (self) => {
+                        el.style.zIndex = Math.round(self.progress * 100);
+                    },
+                },
+            }
+        );
+        
     });
+});
 
 
     this.typewriter()
@@ -419,8 +418,7 @@ body {
   display: flex;
   flex-direction: column; /* Stack items vertically */
   position: relative;
-
-  
+  gap:-200px;
   align-items: center;
 
   border: 1px solid transparent; /* Ensures a base border exists */
@@ -443,6 +441,7 @@ body {
 .project-item {
   width: 70%; /* Adequate width */
   max-width: 500px; /* Prevent too wide */
+  
   height: auto; /* Large height */
   background: black;
   box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
@@ -452,12 +451,9 @@ body {
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  opacity: 0; /* Initially hidden for animation */
-  position: absolute;
-  transition: transform 0.5s ease-out, opacity 0.5s ease-out;
-  pointer-events: auto;
+  position: relative;
   border: 1px solid transparent; /* Ensures a base border exists */
-  transition: transform 0.5s ease-in-out;
+
 
 
 }
@@ -640,7 +636,11 @@ display: flex;
 }
 
 
+.intro-table:hover{
+  border-color: aqua;
+  transition: border 0.4s ease;
 
+}
 /* Rainbow gradient text style */
 .name-gradient {
   font-size: 1.25rem;
@@ -672,3 +672,41 @@ display: flex;
 }
 
 </style>
+<!-- this.$nextTick(() => {
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".project-container",
+      start: "top 80%",
+      end: "bottom top",
+      toggleActions: "play none none reverse",
+      scrub: 1, // Smooth transition as user scrolls
+    },
+  });
+
+  this.$refs.projectRefs.forEach((el, i) => {
+    tl.to(el, {
+      opacity: 1,
+      y: -i * 40, // Offsets each project upward slightly more than the previous one
+      rotate: i % 2 === 0 ? -6 : 6, // Alternate rotation for staggered effect
+      scale: 1,
+      duration: 2,
+      ease: "power2.out",
+      
+
+      scrollTrigger: {
+  trigger: el,
+  start: `top ${100 - i * 40}%`, // Delays when each project stacks
+  end: "top 100%",
+  toggleActions: "play none none reverse",
+  scrub: true, // Smooth stacking effect
+  pinSpacing:true,
+  pin:true,
+  anticipatePin:1,
+  onUpdate: (self) => {
+    el.style.zIndex = Math.round(self.progress * 100);
+  }, // Updates z-index based on scroll progress
+},
+
+    }); // Overlapping animation for smoother stacking
+  });
+}); -->
