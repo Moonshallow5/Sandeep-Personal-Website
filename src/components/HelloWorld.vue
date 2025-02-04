@@ -310,7 +310,7 @@ this.$nextTick(() => {
                 ease: "power1.in",
                 scrollTrigger: {
                     trigger: el,
-                    start: `top 50%`, // Waits until 80% of the first container is seen
+                    start: `top 90%`, // Waits until 80% of the first container is seen
                     end: "top 50%",
                     toggleActions: "play none none reverse",
                  
