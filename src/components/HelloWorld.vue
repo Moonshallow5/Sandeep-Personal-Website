@@ -5,21 +5,42 @@
 <!-- eslint-disable vue/multiline-html-element-content-newline -->
 
 <template>
+  <v-app-bar app color="black" dark dense>
+  <v-container class="d-flex justify-space-between align-center">
+    <h2 class="nav-title"> <a href="https://sandeep-personal-website.vercel.app/home" @click.prevent="scrollToSection('home')">Sandeep Singh </a></h2>
+    <div class="nav-links">
+      <a href="https://sandeep-personal-website.vercel.app/work" @click.prevent="scrollToSection('work')">Work</a>
+      <a href="https://sandeep-personal-website.vercel.app/projects" @click.prevent="scrollToSection('projects')">Projects</a>
+    </div>
+  </v-container>
+</v-app-bar>
 
-  <v-container class="d-flex justify-center align-center" style="height: 50vh; padding-top: 200px; text-align: center; ">
+  <v-container id="home" class="d-flex justify-center align-center" style="height: 50vh; padding-top: 200px; text-align: center; ">
     
     <v-card
       class="rounded-lg p-4 intro-table"
       color="black"
       elevation="3"
-      style="width: 500px; height:300px; text-align:center; border-width: 1px; "
+      style=" height: auto; text-align:center; border-width: 1px; "
     >
       <h2 ref="name" class="name-gradient" style="margin: 20px 20px;">Hi, I'm <span>Sandeep Singh</span></h2>
 
       
       <p class="description-text" style="margin:30px 20px">I'm a passionate, self-started software engineer. I make products that are performant and beautiful. Building things is what I live for</p>
 
-     I am also a <span ref="typewriter" class="typewriter name-gradient"></span><span class="cursor">_</span>
+     I am also a <span ref="typewriter" class="typewriter name-gradient">_</span>
+
+     <div class="social-icons">
+        <a href="https://github.com/yourusername" target="_blank" class="icon">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="mailto:your-email@gmail.com" class="icon">
+          <i class="fas fa-envelope"></i>
+        </a>
+        <a href="https://linkedin.com/in/yourusername" target="_blank" class="icon">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </div>
     </v-card>
 
     
@@ -36,7 +57,7 @@
   </v-container>
 
 
-    <v-container class="d-flex justify-center align-center" style=" margin-top: 20px; ">
+    <v-container class="d-flex justify-center align-center" >
         <div id="images-container">
         <div
           v-for="image in images"
@@ -59,7 +80,7 @@
 
       <div class=" description-box"  id="box1">
         <div class="heading-container">
-    <h3>Machine Learning Specialisation</h3>
+          <a href="https://www.coursera.org/account/accomplishments/specialization/I2B4UDXUZXPU" target="_blank"><h3>Machine Learning Specialisation</h3> </a>
     <a href="https://www.coursera.org/account/accomplishments/specialization/I2B4UDXUZXPU" target="_blank">
     <i class="fas fa-arrow-up-right-from-square"></i>
   </a>
@@ -72,7 +93,7 @@
   
   <div class=" description-box"  id="box2">
     <div class="heading-container">
-    <h3>Deep Learning Specialisation</h3>
+      <a href="https://www.coursera.org/account/accomplishments/specialization/WO8RJLMC1ZDK" target="_blank"><h3>Deep Learning Specialisation</h3></a>
     <a href="https://www.coursera.org/account/accomplishments/specialization/WO8RJLMC1ZDK" target="_blank">
     <i class="fas fa-arrow-up-right-from-square"></i>
   </a>
@@ -83,7 +104,7 @@
 
   <div class=" description-box"  id="box3">
     <div class="heading-container">
-    <h3>NLP Learning Specialisation</h3>
+      <a href="https://www.coursera.org/account/accomplishments/specialization/LBL14C1Z3SD1" target="_blank"><h3>NLP Learning Specialisation</h3></a>
     <a href="https://www.coursera.org/account/accomplishments/specialization/LBL14C1Z3SD1" target="_blank">
     <i class="fas fa-arrow-up-right-from-square"></i>
   </a>
@@ -93,7 +114,7 @@
   </div>
 
      </v-container>
-     <v-container class="d-flex justify-center align-center flex-column" style="padding-top: 200px ">
+     <v-container class=" wow-text d-flex justify-center align-center flex-column" >
 
       <h2> Woah that was a lot of certificates!</h2>
       <p>Let me first explain who I am</p>
@@ -111,7 +132,8 @@
 
       <h2>About me:</h2>
 
-    <p>A recent grad from the University of Edinburgh with a Bachelors in Electronics and Computer Science.  Completed all of Andrew Ng Machine, Deep Learning and NLP specialisation accumalating over 20+ certificates</p>
+    <p>A recent grad from the University of Edinburgh with a Bachelors in Electronics and Computer Science.  <a href="https://www.coursera.org/account/accomplishments/specialization/I2B4UDXUZXPU" 
+      class="highlight-link" target="_blank">Completed all of </a> Andrew Ng Machine, Deep Learning and NLP specialisation accumalating over 20+ certificates</p>
     <br>
 
     <p>Current Full Stack Engineer, Future Data Scientist</p>
@@ -121,7 +143,7 @@
 
 </div>
     </v-container>
-    <v-container class="d-flex flex-column" >
+    <v-container id="work" class="d-flex flex-column" style="padding-top: 70px;" >
       <div class="work-experience">
       <h2>Work Experience:</h2>
     </div>
@@ -129,7 +151,7 @@
     <div class="work-container">
     <div
       v-for="(work, index) in works"
-      :key="work.id"
+      :key="index"
       ref="workRefs"
       class="work-item"
     >
@@ -145,14 +167,14 @@
 
 </v-container>
 
-<v-container class="d-flex flex-column" style="padding-bottom: 2000px;" >
+<v-container id="projects" class="d-flex flex-column" style="padding-bottom: 2000px;" >
       <div class="work-experience">
       <h2>My Projects</h2>
     </div>
     <div class="project-container">
       <div
         v-for="(project, index) in projects"
-        :key="project.id"
+        :key="index"
         ref="projectRefs"
         class="project-item"
       >
@@ -212,15 +234,15 @@ this.$nextTick(() => {
           el,
           {
             opacity: 0,
-            x: index % 2 === 0 ? -window.innerWidth : window.innerWidth, // Start from left/right
-          y: index < 3 ? -window.innerHeight / 2 : window.innerHeight / 2, // Start from top/bottom
-          rotate: index % 2 === 0 ? -30 : 30, // Alternate rotations
+            x: index % 2 === 0 ? "-5vw" : "5vw", // Start from left/right
+          y: index < 3 ? "-6vh" : "6vh",// Start from top/bottom
+          rotate: index % 2 === 0 ? -20 : 20, // Alternate rotations
           },
           {
             scrollTrigger: {
               trigger: "#images-container",
-              start: "top 70%",
-              end: "+=100",
+              start: "top 90%",
+              end: "top 100%",
               scrub: 1,
               toggleActions: "play none none reverse",
 
@@ -228,8 +250,8 @@ this.$nextTick(() => {
             opacity: 1,
             x: 0, // Stagger positioning towards center
             y: 0,
-            rotate: index % 2 === 0 ? -6 : 6, // Straighten images as they arrive
-            duration: 1.5,
+            rotate: index % 2 === 0 ? -10 : 10, // Straighten images as they arrive
+            duration: 2,
             ease: "power2.out",
           }
         );
@@ -240,31 +262,63 @@ this.$nextTick(() => {
         scrollTrigger: {
             trigger: ".container-section", // This should be the section AFTER the images
             start: "top 70%",
-            end: "+=500",
+            end: "+=200",
             scrub: 1,
             pin: true, // Keeps boxes in place while they animate
         },
     });
+    const mm = gsap.matchMedia();
+
+
+    mm.add("(max-width: 768px)", () => {
+    tlBoxes.clear(); // Reset previous animations
 
     tlBoxes
         .to("#box1", {
             opacity: 1,
-            x: "50vw", // Moves to the center
+            y: "0vh", // Keep first box at its position
+            x: "70vw", // Center align on mobile
+            rotate: 0,
+            duration: 1,
+        })
+        .to("#box2", {
+            opacity: 1,
+            y: "20vh", // Move below the first box
+            x: "46vw",
+            rotate: 0,
+            duration: 1,
+        })
+        .to("#box3", {
+            opacity: 1,
+            y: "40vh", // Move below the second box
+            x: "17vw",
+            rotate: 0,
+            duration: 1,
+        }, "-=0.5"); // Slight overlap for smoother transition
+});
+mm.add("(min-width: 769px)", () => {
+    tlBoxes.clear();
+
+    tlBoxes
+        .to("#box1", {
+            opacity: 1,
+            x: "50vw",
             rotate: -12,
             duration: 1,
         })
         .to("#box2", {
             opacity: 1,
-            x: "50vw", // Moves to the center
+            x: "50vw",
             rotate: -6,
             duration: 1,
         })
         .to("#box3", {
             opacity: 1,
-            x: "50vw", // Moves to the center
+            x: "50vw",
             rotate: 6,
             duration: 1,
-        }, "-=0.5") // Starts slightly earlier
+        }, "-=0.5");
+});
 
 
         this.$nextTick(() => {
@@ -276,11 +330,11 @@ this.$nextTick(() => {
             opacity: 1,
             y: 0,
             duration: 0.8,
-            ease: "power2.out",
+            ease: "power2.inOut",
             scrollTrigger: {
               trigger: el,
               start: "top 90%",
-              end: "top 85%",
+              end: "top 70%",
               toggleActions: "play none none reverse",
             },
           }
@@ -306,12 +360,12 @@ this.$nextTick(() => {
                 y: `-${i * 20}px`, // Moves upwards to stack on top
                 scale: 1,
                 opacity: 1,
-                duration: 5,
+                duration: 10,
                 ease: "power1.in",
                 scrollTrigger: {
                     trigger: el,
-                    start: `top 90%`, // Waits until 80% of the first container is seen
-                    end: "top 50%",
+                    start: `top 95%`, // Waits until 80% of the first container is seen
+                    end: "top 80%",
                     toggleActions: "play none none reverse",
                  
                     scrub: 1,
@@ -336,13 +390,20 @@ this.$nextTick(() => {
 
 
   methods:{
+    scrollToSection(sectionId) {
+      const el = document.getElementById(sectionId);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      }
+    },
+  
 
     typewriter() {
       const words = ["Full Stack Developer", "Data Scientist", "Certificate extravagant"];
       const typewriterEl = document.querySelector(".typewriter");
 
       // Blinking cursor effect
-      gsap.to(".cursor", { opacity: 0, ease: "power2.inOut", repeat: -1, yoyo: true, duration: 0.5 });
+      //gsap.to(".cursor", { opacity: 0, ease: "power2.inOut", repeat: -1, yoyo: true, duration: 0.5 });
 
       let wordIndex = 0;
       let charIndex = 0;
@@ -380,9 +441,50 @@ this.$nextTick(() => {
   //
 </script>
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-body {
-  zoom: 3.0; /* Increases overall size */
+
+.nav-title a{
+  font-size: 22px;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+
+}
+
+.nav-links a {
+  color: white;
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease-in-out;
+  font-size: 30px;
+}
+
+.nav-links a:hover {
+  color: #007bff; /* Change color on hover */
+}
+
+.v-app-bar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100px;
+  z-index: 1000;
+}
+.social-icons {
+  margin-top: 20px;
+}
+
+.icon {
+  font-size: 28px; /* Adjust icon size */
+  margin: 0 10px; /* Add spacing between icons */
+  color: white; /* Default color */
+  transition: color 0.3s ease-in-out;
+}
+
+.icon:hover {
+  color: #007bff; /* Change color on hover */
 }
 .certs h2 {
   align-self: flex-start;
@@ -390,6 +492,21 @@ body {
   padding-top: 50px;
 
   
+}
+
+h2{
+  font-family: "Poppins", serif;
+  font-weight: 1300;
+
+  
+}
+
+p{
+  font-family: 'Poppins', sans-serif; /* Replace 'Poppins' with your chosen font */
+  font-weight: 300;
+  font-style: normal;
+
+
 }
 
 .stack-container {
@@ -488,7 +605,7 @@ body {
   display: flex;
   flex-direction: column; /* Stack items vertically */
 
-  gap: 20px;
+  gap: 50px;
   white-space: nowrap;
   padding: 20px;
   margin: 30px 30px;
@@ -537,12 +654,17 @@ body {
  
 }
 
+.highlight-link {
+  font-weight:700; /* Makes the text bold */
+  text-decoration: none; /* Removes underline */
+  color: white;
 
-.about-me p {
-  align-self: flex-start;
-  font-family: articulat-cf, sans-serif;
-font-style: normal;
-font-weight: 100;
+
+  transition: color 0.3s ease-in-out; /* Smooth color transition */
+}
+
+.highlight-link:hover {
+  color: grey /* Changes color when hovered */
 }
 
 .description-box {
@@ -558,7 +680,7 @@ font-weight: 100;
   align-items: center;
   font-size: 16px;
   text-align: center;
-  border: 2px solid transparent; /* Define border width and initial color */
+  border: 1px solid transparent; /* Define border width and initial color */
 
 }
 .heading-container {
@@ -567,31 +689,64 @@ font-weight: 100;
   gap: 8px; /* Adjust spacing between the text and the icon */
   
 }
+
 .description-box:hover{
   border-width: 1px;
   border-color: aqua;
 }
 .heading-container a{
-  font-size: 19px; /* Adjust spacing between the text and the icon */
+  font-weight: bold; /* Adjust spacing between the text and the icon */
   text-decoration: none;
   padding-right: 10px;
   text-align: center;
   justify-content: center;
-  transition: transform 0.6s ease; /* Smooth transition */
+  transition: transform 0.3s ease; /* Smooth transition */
+  color: white;
 
 }
-.description-box:hover .heading-container a {
-  transform: translateX(10px) rotate(10deg) scale(1.1); /* Example with multiple effects */
-  
+.description-box:hover a{
+  color: grey;
+}
+
+.wow-text{
+  padding-top: 200px; /* Default for large screens */
+}
+
+@media (max-width: 768px) {
+  .wow-text{
+    padding-top: 600px; /* Increase padding on small screens */
+  }
+}
+@media (max-width: 768px) {
+  #box1, #box2, #box3 {
+    left: 80%; /* Center boxes */
+    transform: translate(-50%, 0); /* Ensure centering */
+
+
+  }
+
+  #box1 {
+    top: 70vh; /* Moves it higher */
+    
+  }
+
+  #box2 {
+    top: 70vh; /* Stacks below #box1 */
+
+  }
+
+  #box3 {
+    top: 70vh; /* Stacks below #box2 */
+  }
 }
 #box1 {
   top: 50%;
-  left: -35vw; /* Start far left */
+  left: -50vw; /* Start far left */
   transform: translateY(-50%);
 }
 #box2 {
   top: 50%;
-  left: -10vw; /* Starts from the right */
+  left: -25vw; /* Starts from the right */
   transform: translateY(-50%);
   
 
@@ -600,7 +755,7 @@ font-weight: 100;
 
 #box3 {
   top: 50%;
-  left: 15vw; /* Starts from the right */
+  left: 5vw; /* Starts from the right */
   transform: translateY(-50%);
   
 
@@ -612,7 +767,7 @@ display: flex;
   flex-wrap: wrap;
   position: relative;
   justify-content: center;
-  gap:-300px
+
 
 }
 
@@ -630,7 +785,6 @@ display: flex;
   gap:-200px;
 
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
-  transform: scale(1.1); /* Slight zoom */
 
 
 }
@@ -648,6 +802,7 @@ display: flex;
   background: linear-gradient(to right, #f97316, #3b82f6, #10b981); /* Rainbow colors */
   -webkit-background-clip: text;
   color: transparent;
+  
 
   background-size: 200% 100%;
   background-position: 0 0;
@@ -672,41 +827,3 @@ display: flex;
 }
 
 </style>
-<!-- this.$nextTick(() => {
-  const tl = gsap.timeline({
-    scrollTrigger: {
-      trigger: ".project-container",
-      start: "top 80%",
-      end: "bottom top",
-      toggleActions: "play none none reverse",
-      scrub: 1, // Smooth transition as user scrolls
-    },
-  });
-
-  this.$refs.projectRefs.forEach((el, i) => {
-    tl.to(el, {
-      opacity: 1,
-      y: -i * 40, // Offsets each project upward slightly more than the previous one
-      rotate: i % 2 === 0 ? -6 : 6, // Alternate rotation for staggered effect
-      scale: 1,
-      duration: 2,
-      ease: "power2.out",
-      
-
-      scrollTrigger: {
-  trigger: el,
-  start: `top ${100 - i * 40}%`, // Delays when each project stacks
-  end: "top 100%",
-  toggleActions: "play none none reverse",
-  scrub: true, // Smooth stacking effect
-  pinSpacing:true,
-  pin:true,
-  anticipatePin:1,
-  onUpdate: (self) => {
-    el.style.zIndex = Math.round(self.progress * 100);
-  }, // Updates z-index based on scroll progress
-},
-
-    }); // Overlapping animation for smoother stacking
-  });
-}); -->
