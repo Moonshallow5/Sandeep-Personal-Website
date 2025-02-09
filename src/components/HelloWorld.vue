@@ -219,6 +219,14 @@
 
 
     </v-container>
+    <v-container class="d-flex flex-column" style="margin-bottom: 30px; ">
+      <div class="resume">
+        <a href="/Sandeep_Singh_CV_17.pdf" target="_blank" class="cv-link">
+
+      <h2>My CV <i class="fa-solid fa-arrow-up-right-from-square arrow-icon"></i></h2>
+      </a>
+      </div>
+      </v-container>
   
 </template>
 
@@ -466,6 +474,26 @@ mm.add("(min-width: 769px)", () => {
 </script>
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+.cv-link {
+  text-decoration: none;
+  color: white;
+  display: inline-flex;
+  align-items: center;
+  transition: color 0.3s ease-in-out;
+}
+
+.cv-link:hover {
+  color: grey;
+}
+.cv-link:hover .arrow-icon {
+  transform: translateY(-5px) translateX(5px);
+}
+
+.arrow-icon {
+  margin-left: 8px;
+  transition: transform 0.3s ease-in-out;
+}
 
 
 .nav-menu {
