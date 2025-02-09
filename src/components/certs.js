@@ -8,7 +8,7 @@ import img6 from '@/assets/DL-CNN.png'
 import img7 from '@/assets/DL-Sequence-Models.png'
 import img8 from '@/assets/DL-Improving-Deep-NN.png'
 import img9 from '@/assets/NLP-Probabilistic-Models.png'
-import img10 from '@/assets/NLP-Sequence-Models.png'
+import img10 from '@/assets/NLP-Sequence-models.png'
 import img11 from '@/assets/NLP-Classification.png'
 import img12 from '@/assets/NLP-Attention-Models.png'
 
