@@ -1,3 +1,7 @@
+<!-- eslint-disable vue/first-attribute-linebreak -->
+<!-- eslint-disable vue/html-closing-bracket-newline -->
+<!-- eslint-disable vue/singleline-html-element-content-newline -->
+<!-- eslint-disable vue/no-multi-spaces -->
 <!-- eslint-disable vue/html-closing-bracket-spacing -->
 <!-- eslint-disable vue/max-attributes-per-line -->
 <!-- eslint-disable vue/html-indent -->
@@ -5,17 +9,25 @@
 <!-- eslint-disable vue/multiline-html-element-content-newline -->
 
 <template>
-  <v-app-bar app color="black" dark dense>
-  <v-container class="d-flex justify-space-between align-center">
-    <h2 class="nav-title"> <a href="https://sandeep-personal-website.vercel.app/home" @click.prevent="scrollToSection('home')">Sandeep Singh </a></h2>
-    <div class="nav-links">
-      <a href="https://sandeep-personal-website.vercel.app/work" @click.prevent="scrollToSection('work')">Work</a>
-      <a href="https://sandeep-personal-website.vercel.app/projects" @click.prevent="scrollToSection('projects')">Projects</a>
-    </div>
-  </v-container>
-</v-app-bar>
 
-  <v-container id="home" class="d-flex justify-center align-center" style="height: 50vh; padding-top: 200px; text-align: center; ">
+
+<div class="nav-menu"> 
+  <i class="fas fa-bars" @click="showMenu"> 
+  </i> 
+    <div
+    class="nav-content"
+    :class="this.showMobileMenu ? 'open-menu' : 'closed-menu'"> 
+    <div class="logo" > <a href="https://sandeep-personal-website.vercel.app/home" @click.prevent="handleNavClick('home')">Sandeep Singh</a></div>
+    <ul class="nav-items">
+      <li> <a href="https://sandeep-personal-website.vercel.app/about-me" @click.prevent="handleNavClick('about-me')">About</a></li>
+      <li> <a href="https://sandeep-personal-website.vercel.app/work" @click.prevent="handleNavClick('work')">Work</a></li>
+      <li> <a href="https://sandeep-personal-website.vercel.app/projects" @click.prevent="handleNavClick('projects')">Projects</a></li>
+    </ul>
+    
+
+    </div>
+</div>
+<v-container id="home" class="d-flex justify-center align-center" style="height: 50vh; padding-top:300px; text-align: center;  padding-bottom: 30px;">
     
     <v-card
       class="rounded-lg p-4 intro-table"
@@ -25,19 +37,21 @@
     >
       <h2 ref="name" class="name-gradient" style="margin: 20px 20px;">Hi, I'm <span>Sandeep Singh</span></h2>
 
-      
-      <p class="description-text" style="margin:30px 20px">I'm a passionate, self-started software engineer. I make products that are performant and beautiful. Building things is what I live for</p>
+      <div class="description-text" style="margin:30px 20px">
+      <p>I'm a passionate, self-started software engineer. I make products that are performant and beautiful. </p>
+        <p>Building things is what I live for</p>
+        </div>
 
-     I am also a <span ref="typewriter" class="typewriter name-gradient">_</span>
+     <p>I am also a <span ref="typewriter" class="typewriter name-gradient">_</span></p>
 
      <div class="social-icons">
-        <a href="https://github.com/yourusername" target="_blank" class="icon">
+        <a href="https://github.com/Moonshallow5" target="_blank" class="icon">
           <i class="fab fa-github"></i>
         </a>
-        <a href="mailto:your-email@gmail.com" class="icon">
+        <a href="mailto:ssandeepssingh55@gmail.com" class="icon">
           <i class="fas fa-envelope"></i>
         </a>
-        <a href="https://linkedin.com/in/yourusername" target="_blank" class="icon">
+        <a href="https://www.linkedin.com/in/sandeep-singh-557510200/" target="_blank" class="icon">
           <i class="fab fa-linkedin"></i>
         </a>
       </div>
@@ -78,7 +92,7 @@
 
 
 
-      <div class=" description-box"  id="box1">
+      <div id="box1"  class=" description-box">
         <div class="heading-container">
           <a href="https://www.coursera.org/account/accomplishments/specialization/I2B4UDXUZXPU" target="_blank"><h3>Machine Learning Specialisation</h3> </a>
     <a href="https://www.coursera.org/account/accomplishments/specialization/I2B4UDXUZXPU" target="_blank">
@@ -91,7 +105,7 @@
 
   </div>
   
-  <div class=" description-box"  id="box2">
+  <div id="box2"  class=" description-box">
     <div class="heading-container">
       <a href="https://www.coursera.org/account/accomplishments/specialization/WO8RJLMC1ZDK" target="_blank"><h3>Deep Learning Specialisation</h3></a>
     <a href="https://www.coursera.org/account/accomplishments/specialization/WO8RJLMC1ZDK" target="_blank">
@@ -102,7 +116,7 @@
 
   </div>
 
-  <div class=" description-box"  id="box3">
+  <div id="box3"  class=" description-box">
     <div class="heading-container">
       <a href="https://www.coursera.org/account/accomplishments/specialization/LBL14C1Z3SD1" target="_blank"><h3>NLP Learning Specialisation</h3></a>
     <a href="https://www.coursera.org/account/accomplishments/specialization/LBL14C1Z3SD1" target="_blank">
@@ -127,13 +141,20 @@
 
 
 
-    <v-container class="d-flex flex-column">
+    <v-container id="about-me" class="d-flex flex-column">
     <div class="about-me">
 
       <h2>About me:</h2>
 
-    <p>A recent grad from the University of Edinburgh with a Bachelors in Electronics and Computer Science.  <a href="https://www.coursera.org/account/accomplishments/specialization/I2B4UDXUZXPU" 
-      class="highlight-link" target="_blank">Completed all of </a> Andrew Ng Machine, Deep Learning and NLP specialisation accumalating over 20+ certificates</p>
+      <p> I believe SWE is all about building things. But not just building things to keep it private, but instead build things to showcase your work to other people. You can be the best problem solver in the room, but if you don't show it to anyone, nobody is going to believe you.</p>
+      <br>
+      <p>Be proud of your work, showcase it to other people.</p>
+      <br>
+
+    <p>A recent grad from the University of Edinburgh with a Bachelors in Electronics and Computer Science.
+      <a href="https://www.coursera.org/account/accomplishments/specialization/I2B4UDXUZXPU" 
+      class="highlight-link" target="_blank">
+      Completed all of </a> Andrew Ng Machine, Deep Learning and NLP specialisation accumalating over 20+ certificates</p>
     <br>
 
     <p>Current Full Stack Engineer, Future Data Scientist</p>
@@ -167,7 +188,7 @@
 
 </v-container>
 
-<v-container id="projects" class="d-flex flex-column" style="padding-bottom: 2000px;" >
+<v-container id="projects" class="d-flex flex-column"  >
       <div class="work-experience">
       <h2>My Projects</h2>
     </div>
@@ -220,9 +241,8 @@ export default{
       images,
       works,
       projects,
+      showMobileMenu: false,
 
-
-  
   };
 },
 
@@ -251,7 +271,7 @@ this.$nextTick(() => {
             x: 0, // Stagger positioning towards center
             y: 0,
             rotate: index % 2 === 0 ? -10 : 10, // Straighten images as they arrive
-            duration: 2,
+            duration: 0.8,
             ease: "power2.out",
           }
         );
@@ -261,7 +281,7 @@ this.$nextTick(() => {
     const tlBoxes = gsap.timeline({
         scrollTrigger: {
             trigger: ".container-section", // This should be the section AFTER the images
-            start: "top 70%",
+            start: "top 50%",
             end: "+=200",
             scrub: 1,
             pin: true, // Keeps boxes in place while they animate
@@ -283,15 +303,15 @@ this.$nextTick(() => {
         })
         .to("#box2", {
             opacity: 1,
-            y: "20vh", // Move below the first box
+            y: "25vh", // Move below the first box
             x: "46vw",
             rotate: 0,
             duration: 1,
         })
         .to("#box3", {
             opacity: 1,
-            y: "40vh", // Move below the second box
-            x: "17vw",
+            y: "50vh", // Move below the second box
+            x: "16vw",
             rotate: 0,
             duration: 1,
         }, "-=0.5"); // Slight overlap for smoother transition
@@ -322,7 +342,7 @@ mm.add("(min-width: 769px)", () => {
 
 
         this.$nextTick(() => {
-      this.$refs.workRefs.forEach((el, i) => {
+      this.$refs.workRefs.forEach((el) => {
         gsap.fromTo(
           el,
           { opacity: 0, y: 30 },
@@ -333,8 +353,8 @@ mm.add("(min-width: 769px)", () => {
             ease: "power2.inOut",
             scrollTrigger: {
               trigger: el,
-              start: "top 90%",
-              end: "top 70%",
+              start: "top 85%",
+              end: "top 40%",
               toggleActions: "play none none reverse",
             },
           }
@@ -390,11 +410,15 @@ mm.add("(min-width: 769px)", () => {
 
 
   methods:{
-    scrollToSection(sectionId) {
-      const el = document.getElementById(sectionId);
+    handleNavClick(section) {
+      const el = document.getElementById(section);
       if (el) {
         el.scrollIntoView({ behavior: "smooth" });
       }
+      this.showMobileMenu = false;   // Close the menu after clicking
+    },
+    showMenu() {
+      this.showMobileMenu = !this.showMobileMenu;
     },
   
 
@@ -444,34 +468,98 @@ mm.add("(min-width: 769px)", () => {
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 
-.nav-title a{
-  font-size: 22px;
-  font-weight: bold;
-  color: white;
-  text-decoration: none;
+.nav-menu {
+  background-color:  black;
 
-}
-
-.nav-links a {
-  color: white;
-  margin: 0 15px;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease-in-out;
-  font-size: 30px;
-}
-
-.nav-links a:hover {
-  color: #007bff; /* Change color on hover */
-}
-
-.v-app-bar {
   position: fixed;
   top: 0;
-  width: 100%;
-  height: 100px;
-  z-index: 1000;
+    left: 10px;
+    margin: 0; /* Remove extra margins */
+    z-index: 1000;
+    right:10px;
+  
 }
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 10px;
+  align-items: center;
+  font-size: 22px;
+}
+.nav-items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  li {
+    padding: 0 10px;
+  }
+  li a{
+    text-decoration: none;
+    color: white;
+  }
+  li a:hover{
+    color: aqua;
+  }
+}
+.logo a{
+  text-decoration: none;
+  color: white;
+
+}
+.logo a:hover{
+  color: aqua;
+
+}
+.nav-menu i {
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  .nav-menu {
+    position: fixed;
+    top:0;
+ 
+    width: 100%; /* Make sure it spans the whole screen */
+    margin: 0; /* Remove extra margins */
+    z-index: 1000;
+    padding-bottom: 10px;
+    left: 10px;
+    right: 10px;
+  }
+  
+  .open-menu {
+    opacity: 1;
+    height: 30px;
+    padding-bottom: 120px;
+    z-index: 1000;
+  }
+  .closed-menu {
+    opacity: 0;
+    height: 0;
+    padding: 0;
+
+
+  }
+  .nav-content {
+    flex-direction: column;
+    z-index: 1000;
+    position: relative;
+    transition: all 0.2s ease-out;
+  }
+  .nav-items {
+    flex-direction: column;
+  }
+  .nav-menu i {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    
+  }
+  }
+ 
+ 
 .social-icons {
   margin-top: 20px;
 }
@@ -621,7 +709,7 @@ p{
 }
 .work-item {
   width: min(90vw, 700px); /* Max width of 1200px but responsive */
-  height: 250px; /* Allows content to adjust */
+  height: auto; /* Allows content to adjust */
   min-height: 150px; /* Ensures enough space */
   background-color: transparent;
   border-radius: 10px;
@@ -665,6 +753,12 @@ p{
 
 .highlight-link:hover {
   color: grey /* Changes color when hovered */
+}
+.container-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 70px; /* Adjust spacing between boxes */
 }
 
 .description-box {

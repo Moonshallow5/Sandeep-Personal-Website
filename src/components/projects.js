@@ -1,26 +1,40 @@
 
-import img1 from '@/assets/ML-Regress-and-classification.png';
+import img1 from '@/assets/Image-compression.png';
 import img2 from '@/assets/Foodvision.jpg'
 import img3 from '@/assets/maps-gym-markers.png'
 import img4 from '@/assets/drone.png'
+import img5 from '@/assets/odin-project.png'
 export const projects=[
 
 
     {
 
         id:0,
-        title:'FoodVisionasasdasdad',
+        title:'Image Compression',
         github: "https://github.com/Moonshallow5/",
         image:{
             url: img1,
 
-        }
+        },
+        description:' Unsupervised learning using K-means clustering to reduce file size of images by grouping similar colours together'
     },
 
     {
 
         id:1,
-        title:'FoodVisions',
+        title:'Odin Projects',
+        github: "https://github.com/Moonshallow5/",
+        image:{
+            url: img5,
+
+        },
+        description:'The project which built my foundations of web development and led me to make this website, and also allowing me to be a Full Stack Engineer'
+    },
+
+    {
+
+        id:2,
+        title:'FoodVision',
         github: "https://github.com/Moonshallow5/Food_Vision_Flutter",
         image:{
             url: img2,
@@ -30,7 +44,7 @@ export const projects=[
 
     {
 
-        id:2,
+        id:3,
         title:'Web scraping gyms in Malaysia',
         github: "https://github.com/Moonshallow5/Find-Gyms/",
         image:{
@@ -41,7 +55,7 @@ export const projects=[
 
     {
 
-        id:3,
+        id:4,
         title:'Drone Delivery System',
         github: "https://github.com/Moonshallow5/Ilp",
         image:{
