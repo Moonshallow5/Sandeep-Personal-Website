@@ -152,14 +152,14 @@
       <br>
 
     <p>A recent grad from the University of Edinburgh with a Bachelors in Electronics and Computer Science.
-      <a href="https://www.coursera.org/account/accomplishments/specialization/I2B4UDXUZXPU" 
-      class="highlight-link" target="_blank">
-      Completed all of </a> Andrew Ng Machine, Deep Learning and NLP specialisation accumalating over 20+ certificates</p>
+      
+      Completed all of Andrew Ng Machine, Deep Learning and NLP specialisation accumalating over 16+ certificates</p>
     <br>
 
     <p>Current Full Stack Engineer, Future Data Scientist</p>
     <br>
-    <p>Currently focusing on practicing LC and finding ways on exploring creativity by building things</p>
+    <p>Currently focusing on <a href="https://leetcode.com/u/moonshallow/" 
+      class="highlight-link" target="_blank">practicing LC </a> and finding ways on exploring creativity by building things</p>
       
 
 </div>
