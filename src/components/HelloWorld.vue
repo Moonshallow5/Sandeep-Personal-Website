@@ -112,7 +112,7 @@
     <i class="fas fa-arrow-up-right-from-square"></i>
   </a>
   </div>
-    <p>Andrew Ng second ML Course (for more advanced people)</p>
+    <p>Andrew Ng second ML Course (for intermediate people)</p>
 
   </div>
 
@@ -128,7 +128,7 @@
   </div>
 
      </v-container>
-     <v-container class=" wow-text d-flex justify-center align-center flex-column" >
+     <v-container class=" wow-text d-flex justify-center align-center flex-column text-container" >
 
       <h2> Woah that was a lot of certificates!</h2>
       <p>Let me first explain who I am</p>
@@ -151,9 +151,10 @@
       <p>Be proud of your work, showcase it to other people.</p>
       <br>
 
-    <p>A recent grad from the University of Edinburgh with a Bachelors in Electronics and Computer Science.
+    <p>A recent grad from the  <a href="https://www.ed.ac.uk/" 
+      class="highlight-link" target="_blank">University of Edinburgh with a Bachelors in Electronics and Computer Science.</a>
       
-      Completed all of Andrew Ng Machine, Deep Learning and NLP specialisation accumalating over 16+ certificates</p>
+      Completed all of Andrew Ng Machine, Deep Learning and NLP specialisation accumulating over 16+ certificates</p>
     <br>
 
     <p>Current Full Stack Engineer, Future Data Scientist</p>
@@ -170,20 +171,26 @@
     </div>
 
     <div class="work-container">
-    <div
+      <a
       v-for="(work, index) in works"
       :key="index"
       ref="workRefs"
+      :href="work.link"
+      target="_blank"
       class="work-item"
     >
-      <h3><strong>{{ work.company }} </strong></h3>
+      <div class="work-title">
+        <img :src="work.image_url" :alt="work.company" class="work-image"/>
+        <h3><strong>{{ work.company }}</strong></h3>
+        <i class="fa-solid fa-arrow-up-right-from-square arrow-icon"></i>
+      </div>
       <p>{{ work.description }}</p>
       <div class="stack-container">
         <span v-for="(tech, i) in work.stack" :key="i" class="stack-item">
           {{ tech }}
         </span>
       </div>
-    </div>
+    </a>
   </div>
 
 </v-container>
@@ -491,7 +498,7 @@ mm.add("(min-width: 769px)", () => {
 }
 
 .arrow-icon {
-  margin-left: 8px;
+  margin-left: 5px;
   transition: transform 0.3s ease-in-out;
 }
 
@@ -574,7 +581,7 @@ mm.add("(min-width: 769px)", () => {
     flex-direction: column;
     z-index: 1000;
     position: relative;
-    transition: all 0.2s ease-out;
+    transition: color 0.2s ease-in-out;
   }
   .nav-items {
     flex-direction: column;
@@ -651,7 +658,7 @@ p{
   display: flex;
   flex-direction: column; /* Stack items vertically */
   position: relative;
-  gap:-200px;
+
   align-items: center;
 
   border: 1px solid transparent; /* Ensures a base border exists */
@@ -728,20 +735,44 @@ p{
   align-items: center;
   justify-content: center;
 }
+.work-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
 .work-item h3{
-  margin:20px 20px;
+  margin:10px 10px;
+}
+.work-item:hover h3{
+  color: grey;
+}
+.work-item:hover .arrow-icon {
+  transform: translateY(-5px) translateX(5px);
+}
+
+.work-item:hover .work-image {
+  filter: grayscale(100%); /* Makes image grey */
 }
 .work-item:hover {
   border: 2px solid rgba(255, 255, 255, 0.8); /* Light border */
   box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5); /* Glowing effect */
 }
+.work-image {
+  width: 24px; /* Match FontAwesome icon size */
+  height: auto;
+  border-radius:30px;
+ 
+}
 .work-item {
+  text-decoration: none;
+  color: white;
   width: min(90vw, 700px); /* Max width of 1200px but responsive */
   height: auto; /* Allows content to adjust */
   min-height: 150px; /* Ensures enough space */
   background-color: transparent;
   border-radius: 10px;
-  margin: 20px 20px;
   padding-left: 30px;
   padding-right: 30px;
   opacity: 0; /* Initially hidden */
@@ -833,7 +864,14 @@ p{
 .wow-text{
   padding-top: 200px; /* Default for large screens */
 }
+.wow-header {
 
+  margin-bottom: 15px; /* Space between header and paragraph */
+}
+.text-container {
+  text-align: center;
+
+}
 @media (max-width: 768px) {
   .wow-text{
     padding-top: 600px; /* Increase padding on small screens */
@@ -904,8 +942,7 @@ display: flex;
   width: 100%; /* Ensures image fits inside container */
   height: 100%; /* Maintains aspect ratio */
 
-  gap:-200px;
-
+ 
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
 
 
