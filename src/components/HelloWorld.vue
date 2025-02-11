@@ -27,6 +27,10 @@
 
     </div>
 </div>
+
+<div class="progress-container">
+      <div class="progress-bar" :style="{ width: scrollProgress + '%' }"></div>
+    </div>
 <v-container id="home" class="d-flex justify-center align-center" style="height: 50vh; padding-top:300px; text-align: center;  padding-bottom: 30px;">
     
     <v-card
@@ -38,8 +42,8 @@
       <h2 ref="name" class="name-gradient" style="margin: 20px 20px;">Hi, I'm <span>Sandeep Singh</span></h2>
 
       <div class="description-text" style="margin:30px 20px">
-      <p>I'm a passionate, self-started software engineer. I make products that are performant and beautiful. </p>
-        <p>Building things is what I live for</p>
+      <span>I'm a passionate, self-started software engineer. I make products that are performant and beautiful. </span>
+        <span>Building things is what I live for</span>
         </div>
 
      <p>I am also a <span ref="typewriter" class="typewriter name-gradient">_</span></p>
@@ -91,41 +95,39 @@
 
 
 
+      <a href="https://www.coursera.org/account/accomplishments/specialization/I2B4UDXUZXPU" target="_blank">
+        <div id="box1"  class=" description-box">
+          <div class="heading-container">
+            <h3>Machine Learning Specialisation</h3> 
 
-      <div id="box1"  class=" description-box">
-        <div class="heading-container">
-          <a href="https://www.coursera.org/account/accomplishments/specialization/I2B4UDXUZXPU" target="_blank"><h3>Machine Learning Specialisation</h3> </a>
-    <a href="https://www.coursera.org/account/accomplishments/specialization/I2B4UDXUZXPU" target="_blank">
-    <i class="fas fa-arrow-up-right-from-square"></i>
-  </a>
-</div>
+            <i class="fas fa-arrow-up-right-from-square"></i>
 
-    <p>Andrew Ng first ML Course (for complete beginners)</p>
-    
-
-  </div>
-  
+          </div>
+          <p>Andrew Ng first ML Course (for complete beginners)</p>
+        </div>
+      </a>
+  <a href="https://www.coursera.org/account/accomplishments/specialization/WO8RJLMC1ZDK" target="_blank">
   <div id="box2"  class=" description-box">
     <div class="heading-container">
-      <a href="https://www.coursera.org/account/accomplishments/specialization/WO8RJLMC1ZDK" target="_blank"><h3>Deep Learning Specialisation</h3></a>
-    <a href="https://www.coursera.org/account/accomplishments/specialization/WO8RJLMC1ZDK" target="_blank">
-    <i class="fas fa-arrow-up-right-from-square"></i>
-  </a>
+      <h3>Deep Learning Specialisation</h3>
+      <i class="fas fa-arrow-up-right-from-square"></i>
+
   </div>
     <p>Andrew Ng second ML Course (for intermediate people)</p>
 
   </div>
-
-  <div id="box3"  class=" description-box">
-    <div class="heading-container">
-      <a href="https://www.coursera.org/account/accomplishments/specialization/LBL14C1Z3SD1" target="_blank"><h3>NLP Learning Specialisation</h3></a>
-    <a href="https://www.coursera.org/account/accomplishments/specialization/LBL14C1Z3SD1" target="_blank">
-    <i class="fas fa-arrow-up-right-from-square"></i>
   </a>
-  </div>
-    <p>Andrew Ng third ML Course (for more advanced people)</p>
 
+  <a href="https://www.coursera.org/account/accomplishments/specialization/LBL14C1Z3SD1" target="_blank">
+  <div id="box3" class="description-box">
+    <div class="heading-container">
+      <h3>NLP Learning Specialisation</h3>
+      <i class="fas fa-arrow-up-right-from-square"></i>
+    </div>
+    <p>Andrew Ng third ML Course (for more advanced people)</p>
   </div>
+</a>
+
 
      </v-container>
      <v-container class=" wow-text d-flex justify-center align-center flex-column text-container" >
@@ -257,12 +259,18 @@ export default{
       works,
       projects,
       showMobileMenu: false,
+      scrollProgress:0,
 
   };
 },
+beforeUnmount() {
+    window.removeEventListener("scroll", this.updateScroll);
+  },
 
 
   mounted(){
+    window.addEventListener("scroll", this.updateScroll);
+
 this.$nextTick(() => {
       this.$refs.imageRefs.forEach((el, index) => {
         gsap.fromTo(
@@ -425,6 +433,11 @@ mm.add("(min-width: 769px)", () => {
 
 
   methods:{
+    updateScroll() {
+      const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+      const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      this.scrollProgress = (scrollTop / scrollHeight) * 100;
+    },
     handleNavClick(section) {
       const el = document.getElementById(section);
       if (el) {
@@ -438,7 +451,7 @@ mm.add("(min-width: 769px)", () => {
   
 
     typewriter() {
-      const words = ["Full Stack Developer", "Data Scientist", "Certificate extravagant"];
+      const words = ["Full Stack Engineer", "Data Scientist", "Certificate extravagant"];
       const typewriterEl = document.querySelector(".typewriter");
 
       // Blinking cursor effect
@@ -481,7 +494,26 @@ mm.add("(min-width: 769px)", () => {
 </script>
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+a{
+  text-decoration: none;
+  
+}
+.progress-container {
+  position: fixed;
+  top:0px;
+  left:0;
 
+  width: 100%;
+  height: 5px;
+  background-color: transparent;
+  z-index: 1000;
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: white;
+  transition: width 0.2s ease-out;
+}
 .cv-link {
   text-decoration: none;
   color: white;
@@ -505,11 +537,12 @@ mm.add("(min-width: 769px)", () => {
 
 .nav-menu {
   background-color:  black;
+  border-radius: 40px;
 
   position: fixed;
-  top: 0;
+
     left: 10px;
-    margin: 0; /* Remove extra margins */
+    margin-top:9px; /* Remove extra margins */
     z-index: 1000;
     right:10px;
   
@@ -842,24 +875,22 @@ p{
   gap: 8px; /* Adjust spacing between the text and the icon */
   
 }
+.description-box{
+  color: white;
+}
 
 .description-box:hover{
   border-width: 1px;
   border-color: aqua;
 }
-.heading-container a{
-  font-weight: bold; /* Adjust spacing between the text and the icon */
-  text-decoration: none;
-  padding-right: 10px;
-  text-align: center;
-  justify-content: center;
-  transition: transform 0.3s ease; /* Smooth transition */
-  color: white;
 
-}
-.description-box:hover a{
+.description-box:hover h3{
   color: grey;
 }
+.description-box:hover i{
+  color: grey;
+}
+
 
 .wow-text{
   padding-top: 200px; /* Default for large screens */
@@ -979,8 +1010,10 @@ display: flex;
 
 
 
-.description-text {
-  font-size: 1.125rem;
+.description-text  {
+  font-family: "Poppins", serif;
+  font-weight: 1700;
+  font-size: 1.8rem;
   color: white;
   margin-top: 1rem;
 }
