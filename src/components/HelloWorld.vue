@@ -27,6 +27,16 @@
 
     </div>
 </div>
+  <div>
+    <transition name="fade">
+      <div v-if="showScrollNotification" class="scroll-notification">
+        <p class="scroll-text">Scroll down to discover</p>
+        <div class="arrow-container">
+        <v-icon>mdi-arrow-down</v-icon> 
+      </div>
+      </div>
+    </transition>
+    </div>
 
 <div class="progress-container">
       <div class="progress-bar" :style="{ width: scrollProgress + '%' }"></div>
@@ -260,15 +270,22 @@ export default{
       projects,
       showMobileMenu: false,
       scrollProgress:0,
+      showScrollNotification: true,
+      lastScrollY: 0, // Stores the last scroll position
+      scrollTimeout: null, // To track scroll state
 
   };
 },
 beforeUnmount() {
+  window.removeEventListener("scroll", this.handleScroll);
+
     window.removeEventListener("scroll", this.updateScroll);
   },
 
 
   mounted(){
+    window.addEventListener("scroll", this.handleScroll);
+
     window.addEventListener("scroll", this.updateScroll);
 
 this.$nextTick(() => {
@@ -433,6 +450,27 @@ mm.add("(min-width: 769px)", () => {
 
 
   methods:{
+    handleScroll() {
+      const currentScrollY = window.scrollY;
+
+      // If user scrolls down, hide the notification smoothly
+      if (currentScrollY > this.lastScrollY) {
+        this.showScrollNotification = false;
+      } 
+      // If user scrolls up or stays at the top, show the notification
+      else if (currentScrollY < this.lastScrollY) {
+        this.showScrollNotification = true;
+      }
+
+      // Update last scroll position
+      this.lastScrollY = currentScrollY;
+
+      // Set timeout to hide notification after a delay
+      clearTimeout(this.scrollTimeout);
+      this.scrollTimeout = setTimeout(() => {
+        this.showScrollNotification = false;
+      }, 2000); // Hide after 2 seconds
+    },
     updateScroll() {
       const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
       const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -498,6 +536,46 @@ a{
   text-decoration: none;
   
 }
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
+
+/* Notification styling */
+.scroll-notification {
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+
+  font-weight: bold;
+  z-index: 1000;
+}
+.scroll-text {
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+  background: transparent; /* No background for text */
+
+  padding-bottom: 5px;
+}
+.arrow-container {
+  background: #ff6b6b; /* Custom background color */
+  padding: 5px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Icon styling */
+
 .progress-container {
   position: fixed;
   top:0px;
