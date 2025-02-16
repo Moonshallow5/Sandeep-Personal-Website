@@ -12,11 +12,11 @@ export const works=[
         description:`Work on the frontend design of our team building chatbots. 
         Utilized Vue.js and Vuetify to develop our chatbots.
 
-        Implemented scalable and maintainable infrastructure using Amazon Cloud Development Kit (CDK) to automate
-resource provisioning and streamline deployments. Build APIs when needed to do Ajax Requests as well as tested them with Postman API`,
+        Implemented scalable and maintainable infrastructure using Amazon Cloud Development Kit (CDK). Build APIs when needed to do Ajax Requests as well as tested them with Postman API. Delivered our AI chatbot with its numerous functionality to the largest AI summit in Malaysia, and I was the lead FE developer`,
         stack:['Vue.js', 'Vuetify','AWS','Postman'],
         image_url:img1,
         link:'https://www.pimato.com/',
+        duration: 'Dec 2024 - Present'
     },
 
     {
@@ -28,16 +28,18 @@ the performance of n-gram models and transformers. Optimized LLMs to enhance cus
         stack:['Tensorflow', 'Scikit-learn'],
         image_url:img2,
         link:'https://outlier.ai/',
+        duration: 'Sep 2024 - Nov 2024'
     },
 
     {
         id: 3,
         company:'Asia Pacific University | Full Stack Engineer',
-        description:`Developed multiple Flask based applications ranging from simple file uploaders to complex encryption of data.`,
+        description:`Developed multiple Flask based applications ranging from simple file uploaders to complex encryption of data. Collaborated with other team members to deliver numerous up and coming projects to our project manager `,
 
         stack:['Flask','JavaScript'],
         image_url:img3,
         link:'https://www.apu.edu.my/',
+        duration: 'Aug 2024 - Oct 2024'
     },
    
 
