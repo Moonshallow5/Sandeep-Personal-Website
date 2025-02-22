@@ -118,9 +118,9 @@ this.$nextTick(() => {
           {
             scrollTrigger: {
               trigger: "#images-container",
-              start: "top 90%",
-              end: "top 100%",
-              scrub: 1,
+              start: "top 70%",
+              end: "top 60%",
+              scrub: 1.5,
               toggleActions: "play none none reverse",
 
             },
@@ -128,7 +128,7 @@ this.$nextTick(() => {
             x: 0, // Stagger positioning towards center
             y: 0,
             rotate: index % 2 === 0 ? -10 : 10, // Straighten images as they arrive
-            duration: 0.8,
+            duration: 2.3,
             ease: "power2.out",
           }
         );

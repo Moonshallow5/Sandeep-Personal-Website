@@ -25,14 +25,16 @@
       <v-img
         src="../assets/aws-certified-cloud-practitioner.png"
         alt="AWS Certified Badge"
+        class="animated-image"
         style=" width: 130px; height: auto; margin-top: 70px;  display: block;"
       />
     </a>
     </v-col>
     </v-row>
-      <h2 ref="name" class="name-gradient" style="margin: 20px 20px;">Hi, I'm <span>Sandeep Singh</span></h2>
+      <h2 ref="name"  style=" align-items: center;  margin-bottom: 20px;" > <span class="name-gradient">Hi, I'm Sandeep Singh</span> <span class="wave">👋</span></h2> 
+      
 
-      <div class="description-text" style="margin:30px 20px">
+      <div class="description-text" style="margin-bottom: 20px;">
       <span>I'm a passionate, self-started software engineer. I make products that are performant and beautiful. </span>
         <span>Building things is what I live for</span>
         </div>
@@ -68,6 +70,40 @@ export default{
 </script>
 
 <style scoped>
+
+.animated-image {
+  transition: transform 1s ease-in-out;
+}
+/* Create the animated border effect */
+.animated-image:hover {
+  transform: rotate(360deg);
+}
+
+.wave {
+  
+  display: inline-block;
+  font-size: 25px;
+
+ 
+  transform-origin: 70% 70%;
+  transition: transform 0.3s ease-in-out;
+
+}
+.v-card:hover .wave {
+  animation: wave-animation 1.5s infinite;
+}
+
+
+@keyframes wave-animation {
+  0% { transform: rotate(0deg); }
+  10% { transform: rotate(14deg); }
+  20% { transform: rotate(-8deg); }
+  30% { transform: rotate(14deg); }
+  40% { transform: rotate(-4deg); }
+  50% { transform: rotate(10deg); }
+  60% { transform: rotate(0deg); }
+  100% { transform: rotate(0deg); }
+}
 h2{
   font-family: "Poppins", serif;
   font-weight: 1300;
