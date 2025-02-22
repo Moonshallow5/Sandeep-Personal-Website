@@ -11,7 +11,7 @@
 
 <template>
 
-<v-container id="home" class="d-flex justify-center align-center" style="height: 50vh; padding-top:300px; text-align: center;  padding-bottom: 30px;">
+<v-container id="home" class="d-flex justify-center align-center" style="height: 50vh; padding-top:350px; text-align: center;  padding-bottom: 30px;">
     
     <v-card
       class="rounded-lg p-4 intro-table"
@@ -19,6 +19,17 @@
       elevation="3"
       style=" height: auto; text-align:center; border-width: 1px; "
     >
+    <v-row class="justify-start">
+      <v-col cols="auto">
+    <a href="https://cp.certmetrics.com/amazon/en/public/verify/credential/ff7a45e5f19f4a27b94834b5a54c054c" target="_blank" class="aws-badge">
+      <v-img
+        src="../assets/aws-certified-cloud-practitioner.png"
+        alt="AWS Certified Badge"
+        style=" width: 130px; height: auto; margin-top: 70px;  display: block;"
+      />
+    </a>
+    </v-col>
+    </v-row>
       <h2 ref="name" class="name-gradient" style="margin: 20px 20px;">Hi, I'm <span>Sandeep Singh</span></h2>
 
       <div class="description-text" style="margin:30px 20px">
