@@ -82,8 +82,8 @@ export default{
             ease: "power2.inOut",
             scrollTrigger: {
               trigger: el,
-              start: "top 70%",
-              end: "top 60%",
+              start: "top 60%",
+              end: "top 90%",
               toggleActions: "play none none reverse",
             },
           }
@@ -106,6 +106,14 @@ h2{
 }
 
 p{
+  font-family: 'Poppins', sans-serif; /* Replace 'Poppins' with your chosen font */
+  font-weight: 300;
+  font-style: normal;
+  font-size: 1.1em;
+
+
+}
+ul{
   font-family: 'Poppins', sans-serif; /* Replace 'Poppins' with your chosen font */
   font-weight: 300;
   font-style: normal;
@@ -204,12 +212,18 @@ p{
 .work-item:hover .arrow-icon {
   transform: translateY(-5px) translateX(5px);
 }
-
+.arrow-icon {
+  transition: transform 0.5s ease;
+}
 
 .work-item:hover {
   border: 2px solid rgba(255, 255, 255, 0.8); /* Light border */
   box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5); /* Glowing effect */
 }
+.work-item {
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
 .work-image {
   width: 24px; /* Match FontAwesome icon size */
   height: auto;

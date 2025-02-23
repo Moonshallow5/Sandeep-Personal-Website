@@ -10,7 +10,7 @@
 
 
 <template>
-    <v-container class="d-flex " style="margin-top: 250px;">
+    <v-container class="d-flex " >
 
     <div class="certs">
         <h2>Certificates:</h2>
@@ -107,20 +107,21 @@ export default{
         
 this.$nextTick(() => {
       this.$refs.imageRefs.forEach((el, index) => {
+
         gsap.fromTo(
           el,
           {
             opacity: 0,
-            x: index % 2 === 0 ? "-5vw" : "5vw", // Start from left/right
-          y: index < 3 ? "-6vh" : "6vh",// Start from top/bottom
+            x: index % 2 === 0 ? "0vw" : "5vw", // Start from left/right
+          y: index < 3 ? "0vh" : "6vh",// Start from top/bottom
           rotate: index % 2 === 0 ? -20 : 20, // Alternate rotations
           },
           {
             scrollTrigger: {
               trigger: "#images-container",
-              start: "top 70%",
-              end: "top 60%",
-              scrub: 1.5,
+              start: "clamp(top 40%)",
+              end: "+=200",
+              scrub: 1.2,
               toggleActions: "play none none reverse",
 
             },
@@ -128,7 +129,7 @@ this.$nextTick(() => {
             x: 0, // Stagger positioning towards center
             y: 0,
             rotate: index % 2 === 0 ? -10 : 10, // Straighten images as they arrive
-            duration: 2.3,
+            duration: 0.5,
             ease: "power2.out",
           }
         );

@@ -91,7 +91,7 @@ export default{
                     scrollTrigger: {
                         trigger: el,
                         start: `top 60%`, // Waits until 80% of the first container is seen
-                        end: "top 50%",
+                        end: "top 90%",
                         toggleActions: "play none none reverse",
                     
                         scrub: 1,
@@ -112,6 +112,21 @@ export default{
 </script>
 
 <style scoped>
+h2{
+  font-family: "Poppins", serif;
+  font-weight: 1300;
+
+  
+}
+
+p{
+  font-family: 'Poppins', sans-serif; /* Replace 'Poppins' with your chosen font */
+  font-weight: 300;
+  font-style: normal;
+  font-size: 1.1em;
+
+
+}
 .project-container {
   display: flex;
   flex-direction: column; /* Stack items vertically */

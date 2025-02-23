@@ -12,7 +12,7 @@
 
 
 <div class="nav-menu"> 
-  <i class="fas fa-bars" @click="showMenu"> 
+  <i class="fas fa-bars mb-3"  @click="showMenu"> 
   </i> 
     <div
     class="nav-content"
@@ -363,20 +363,21 @@ a{
 @media screen and (max-width: 768px) {
   .nav-menu {
     position: fixed;
-    top:0;
+
+
  
     width: 100%; /* Make sure it spans the whole screen */
-    margin: 0; /* Remove extra margins */
     z-index: 1000;
-    padding-bottom: 10px;
+    margin-top: 9px;
     left: 10px;
     right: 10px;
+    border-radius: 40px;
   }
   
   .open-menu {
     opacity: 1;
     height: 30px;
-    padding-bottom: 120px;
+    padding-bottom: 159px;
     z-index: 1000;
   }
   .closed-menu {

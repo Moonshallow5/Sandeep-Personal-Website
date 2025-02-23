@@ -11,13 +11,13 @@
 
 <template>
 
-<v-container id="home" class="d-flex justify-center align-center" style="height: 50vh; padding-top:350px; text-align: center;  padding-bottom: 30px;">
+<v-container id="home" class="d-flex justify-center align-center" style="height: 110vh;  text-align: center;  padding-bottom: 30px;">
     
     <v-card
-      class="rounded-lg p-4 intro-table"
+      class="rounded-lg intro-table"
       color="black"
       elevation="3"
-      style=" height: auto; text-align:center; border-width: 1px; "
+      style=" height: auto; text-align:center; border-width: 1px; width: 100%; "
     >
     <v-row class="justify-start">
       <v-col cols="auto">
@@ -31,7 +31,26 @@
     </a>
     </v-col>
     </v-row>
+    <v-row
+    class="d-flex align-center"
+    style="justify-content: center;"
+  >
+    <v-col
+      cols="auto"
+      class="d-flex align-center"
+    >
+      
+        <img src="../assets/view-compress.png" class="animated-image mb-5" alt="Avatar" style="width: 100px; border-radius: 20px;">
+     
+    </v-col>
+   
+    <v-col
+      cols="auto"
+      class="d-flex align-center"
+    >
       <h2 ref="name"  style=" align-items: center;  margin-bottom: 20px;" > <span class="name-gradient">Hi, I'm Sandeep Singh</span> <span class="wave">👋</span></h2> 
+      </v-col>
+      </v-row>
       
 
       <div class="description-text" style="margin-bottom: 20px;">

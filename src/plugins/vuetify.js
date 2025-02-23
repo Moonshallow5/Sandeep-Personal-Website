@@ -12,8 +12,18 @@ import 'vuetify/styles'
 import { createVuetify } from 'vuetify'
 
 // https://vuetifyjs.com/en/introduction/why-vuetify/#feature-guides
+const myCustomLightTheme = {
+  dark: false,
+  colors: {
+    background: '#000000',
+  }
+}
 export default createVuetify({
   theme: {
-    defaultTheme: 'dark',
+    defaultTheme: 'myCustomLightTheme',
+    themes: {
+      myCustomLightTheme,
+    },
   },
+    
 })
