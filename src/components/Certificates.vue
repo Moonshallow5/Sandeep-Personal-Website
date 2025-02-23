@@ -119,7 +119,7 @@ this.$nextTick(() => {
           {
             scrollTrigger: {
               trigger: "#images-container",
-              start: "clamp(top 40%)",
+              start: "clamp(top 70%)",
               end: "+=200",
               scrub: 1.2,
               toggleActions: "play none none reverse",
@@ -249,7 +249,7 @@ display: flex;
 .image-container {
 
 
-  width: 300px; /* Adjust image size */
+  width: 270px; /* Adjust image size */
   height: 200px;
   transition: opacity 0.5s ease-out;
 }
