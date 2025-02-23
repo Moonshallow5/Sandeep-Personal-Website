@@ -11,7 +11,7 @@ export const projects=[
 
         id:0,
         title:'Image Compression',
-        github: "https://github.com/Moonshallow5/",
+        github: "https://github.com/Moonshallow5/Image_Compressor",
         image:{
             url: img1,
 
@@ -23,7 +23,7 @@ export const projects=[
 
         id:1,
         title:'Odin Projects',
-        github: "https://github.com/Moonshallow5/",
+        github: "https://github.com/Moonshallow5/Odin_Project",
         image:{
             url: img5,
 

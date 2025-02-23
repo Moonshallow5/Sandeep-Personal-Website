@@ -20,10 +20,12 @@
       <h2>My Projects</h2>
     </div>
     <div class="project-container">
-      <div
+      <a
         v-for="(project, index) in projects"
         :key="index"
         ref="projectRefs"
+        :href="project.github"
+        target="_blank"
         class="project-item"
       >
 
@@ -40,7 +42,7 @@
     <p>{{ project.description }}</p>
 
     
-      </div>
+      </a>
     </div>
 
 
@@ -135,6 +137,8 @@ export default{
 }
 
 .project-item {
+  text-decoration: none;
+  color: white;
   width: 70%; /* Adequate width */
   max-width: 500px; /* Prevent too wide */
   

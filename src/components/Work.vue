@@ -35,7 +35,9 @@
                     </div>
                     
             
-                    <p class="work-description">{{ work.description }}</p>
+                    <ul class="work-description">
+                      <li v-for="(item, idx) in work.description" :key="idx">{{ item }}</li>
+                    </ul>
 
                     <div class="stack-container">
                         <span v-for="(tech, i) in work.stack" :key="i" class="stack-item">
@@ -192,6 +194,9 @@ p{
 .work-description {
   margin-top: 5px; /* Adds spacing below title */
   text-align: left;
+}
+.work-description li {
+  margin-bottom: 5px;
 }
 .work-item:hover h3{
   color: grey;
