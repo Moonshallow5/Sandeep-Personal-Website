@@ -35,7 +35,7 @@
                     </div>
                     
             
-                    <ul class="work-description">
+                    <ul class="work-description ml-5">
                       <li v-for="(item, idx) in work.description" :key="idx">{{ item }}</li>
                     </ul>
 

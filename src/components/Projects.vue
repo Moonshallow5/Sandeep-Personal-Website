@@ -90,8 +90,8 @@ export default{
                     ease: "power1.in",
                     scrollTrigger: {
                         trigger: el,
-                        start: `top 60%`, // Waits until 80% of the first container is seen
-                        end: "top 90%",
+                        start: `top 30%`, 
+                        end: "top 50%",
                         toggleActions: "play none none reverse",
                     
                         scrub: 1,
