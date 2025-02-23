@@ -26,7 +26,7 @@
         src="../assets/aws-certified-cloud-practitioner.png"
         alt="AWS Certified Badge"
         class="animated-image"
-        style=" width: 130px; height: auto; margin-top: 70px;  display: block;"
+        style=" width: 130px; height: auto;   display: block;"
       />
     </a>
     </v-col>
