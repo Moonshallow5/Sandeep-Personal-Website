@@ -13,6 +13,7 @@ export const works=[
         description:[
         'Worked on the frontend design of our team building chatbots.',
   'Utilized Vue.js and Vuetify to develop our chatbots.',
+  'Developed Dataflex, a tool which allows users to upload text heavy documents and by using Amazon Textract, with a query, be able to have Q&A with users on relevant information on documents',
   'Implemented scalable and maintainable infrastructure using Amazon Cloud Development Kit (CDK).',
   'Built APIs for Ajax requests and tested them with Postman API.',
   'Delivered our AI chatbot with numerous functionalities to the largest AI summit in Malaysia as the lead frontend developer.'
