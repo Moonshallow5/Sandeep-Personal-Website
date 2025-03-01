@@ -10,9 +10,9 @@
 <!-- eslint-disable vue/multiline-html-element-content-newline -->
 
     <template>
-    <v-container id="work" class="d-flex flex-column" style="padding-top: 70px;" >
+    <v-container id="work" class="d-flex flex-column" style="padding-top: 90px;" >
         <div class="work-experience mb-5">
-        <h2>Work Experience:</h2>
+        <h2>My Work Experience</h2>
       </div>
   
     <div class="work-container">
@@ -22,7 +22,9 @@
         ref="workRefs"
         :href="work.link"
         target="_blank"
-        class="work-item">
+        class="work-item"
+        :style="{ backgroundColor: work.bgColor }"
+        >
             <div class="work-header">
                 <div class="work-duration">
                     <p>{{ work.duration }}</p> <!-- Add this for work duration -->
@@ -40,11 +42,14 @@
                     </ul>
 
                     <div class="stack-container">
-                        <span v-for="(tech, i) in work.stack" :key="i" class="stack-item">
-                        
-                            {{ tech }}
-
-                        </span>
+                      <v-tooltip v-for="(tech, i) in work.stack" :key="i" location="top"  >
+                        <template v-slot:activator="{ props }"  >
+                          <span v-bind="props" >
+                            <i :class="tech.icon"  class="stack-item" :style="{ color: tech.color, fontSize: '24px'}"></i>
+                          </span>
+                        </template>
+                        <span>{{ tech.name }}</span>
+                      </v-tooltip>
                     </div>
                 </div>
             </div>
@@ -71,7 +76,9 @@ export default{
 
     mounted(){
         this.$nextTick(() => {
-      this.$refs.workRefs.forEach((el) => {
+          const heading = document.querySelector(".work-experience"); // Select heading
+          const allElements = [heading, ...this.$refs.workRefs]; // Include heading + work items
+      allElements.forEach((el) => {
         gsap.fromTo(
           el,
           { opacity: 0, y: 30 },
@@ -165,15 +172,12 @@ ul{
 }
 
 .stack-item {
-    background-color: #f7e15c;
 
-  color: black;
-  margin-top: 30px;
-  padding: 6px 12px;
-  border-radius: 10px;
-  font-size: 10px;
+  margin-top: 20px;
+  padding-right: 12px ;
+ padding-bottom: 10px;
   font-weight: bold;
-  display: inline-block;
+ 
 }
 
 
@@ -232,12 +236,11 @@ ul{
 }
 .work-item {
   text-decoration: none;
-  color: white;
+  color: black;
   width: 90%;
 
 
   height: auto; /* Allows content to adjust */
-  background-color: transparent;
   border-radius: 10px;
 padding: 10px;
   opacity: 0; /* Initially hidden */

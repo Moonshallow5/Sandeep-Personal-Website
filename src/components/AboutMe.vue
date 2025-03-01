@@ -14,7 +14,6 @@
 <v-container id="about-me" class="d-flex flex-column">
     <div class="about-me">
 
-      <h2>About me:</h2>
 
       <p> I believe SWE is all about building things. But not just building things to keep it private, but instead build things to showcase your work to other people. You can be the best problem solver in the room, but if you don't show it to anyone, nobody is going to believe you.</p>
       <br>

@@ -49,6 +49,7 @@
     <Certificates />
 
     <AboutMe />
+    <Skills />
 
     <Work />
     <Projects />
@@ -82,6 +83,7 @@ import AboutMe from "./AboutMe.vue";
 import Projects from "./Projects.vue";
 import gsap from "gsap"; // Import GSAP
 import ScrollTrigger from "gsap/ScrollTrigger";
+import Skills from "./Skills.vue";
 
 
 
@@ -148,12 +150,17 @@ beforeUnmount() {
     },
     
     handleNavClick(section) {
-      const el = document.getElementById(section);
-      if (el) {
-        el.scrollIntoView({ behavior: "smooth" });
-      }
-      this.showMobileMenu = false;   // Close the menu after clicking
-    },
+      if (!this.showMobileMenu && window.innerWidth <= 768) {
+    return; // Do nothing if menu is closed on small screens
+  }
+
+  const el = document.getElementById(section);
+  if (el) {
+    el.scrollIntoView({ behavior: "smooth" });
+  }
+
+  this.showMobileMenu = false; // Close the menu after clicking
+},
     showMenu() {
       this.showMobileMenu = !this.showMobileMenu;
     },
@@ -312,15 +319,19 @@ a{
 
 
 .nav-menu {
-  background-color:  black;
+
+
   border-radius: 40px;
 
   position: fixed;
-
+  backdrop-filter: blur(15px); /* Adds a blur effect for a modern look */
+  border: 1px solid rgba(200, 200, 200, 0.5); /* Light border */
+  background-color: rgba(255, 255, 255, 0.3); /* Semi-transparent white */
     left: 10px;
-    margin-top:9px; /* Remove extra margins */
+    margin: 0 auto;
     z-index: 1000;
     right:10px;
+    align-items: center;
   
 }
 .nav-content {
@@ -362,16 +373,17 @@ a{
 }
 @media screen and (max-width: 768px) {
   .nav-menu {
-    position: fixed;
-
-
- 
-    width: 100%; /* Make sure it spans the whole screen */
-    z-index: 1000;
-    margin-top: 9px;
-    left: 10px;
-    right: 10px;
     border-radius: 40px;
+
+  position: fixed;
+  backdrop-filter: blur(15px); /* Adds a blur effect for a modern look */
+  border: 1px solid rgba(200, 200, 200, 0.5); /* Light border */
+  background-color: rgba(255, 255, 255, 0.3); /* Semi-transparent white */
+    left: 10px;
+    margin: 0 auto;
+    z-index: 1000;
+    right:10px;
+    align-items: center;
   }
   
   .open-menu {

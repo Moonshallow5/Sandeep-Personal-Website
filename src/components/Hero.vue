@@ -11,7 +11,7 @@
 
 <template>
 
-<v-container id="home" class="d-flex justify-center align-center" style="height: 130vh;  text-align: center;  padding-bottom: 30px;">
+<v-container id="home" class="d-flex justify-center align-center" style="height:100vh;  text-align: center;  padding-bottom: 30px;">
     
     <v-card
       class="rounded-lg intro-table"
@@ -26,7 +26,7 @@
         src="../assets/aws-certified-cloud-practitioner.png"
         alt="AWS Certified Badge"
         class="animated-image"
-        style=" width: 130px; height: auto;   display: block;"
+        style=" width: 100px; height: auto;   display: block;"
       />
     </a>
     </v-col>
@@ -48,12 +48,12 @@
       cols="auto"
       class="d-flex align-center"
     >
-      <h2 ref="name"  style=" align-items: center;  margin-bottom: 20px;" > <span class="name-gradient">Hi, I'm Sandeep Singh</span> <span class="wave">👋</span></h2> 
+      <h2 ref="name"  style=" align-items: center;  margin-bottom: 10px;" > <span class="name-gradient">Hi, I'm Sandeep Singh</span> <span class="wave">👋</span></h2> 
       </v-col>
       </v-row>
       
 
-      <div class="description-text" style="margin-bottom: 20px;">
+      <div class="description-text" style="margin-bottom: 10px;">
       <span>I'm a passionate, self-started software engineer. I make products that are performant and beautiful. </span>
         <span>Building things is what I live for</span>
         </div>

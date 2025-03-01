@@ -13,7 +13,7 @@
     <v-container class="d-flex " >
 
     <div class="certs">
-        <h2>Certificates:</h2>
+        <h2 class="cert-text">My Certificates</h2>
     </div>
 
     </v-container>
@@ -76,8 +76,8 @@
     </v-container>
     <v-container class=" wow-text d-flex justify-center align-center flex-column text-container" >
 
-<h2> Woah that was a lot of certificates!</h2>
-<p>Let me first explain who I am</p>
+<!-- <h2> Woah that was a lot of certificates!</h2>
+<p>Let me first explain who I am</p> -->
 
 
 
@@ -112,9 +112,10 @@ this.$nextTick(() => {
           el,
           {
             opacity: 0,
-            x: index % 2 === 0 ? "0vw" : "5vw", // Start from left/right
-          y: index < 3 ? "0vh" : "6vh",// Start from top/bottom
+            x: index % 2 === 0 ? "-10vw" : "10vw", // Start from left/right
+          y: index < 3 ? "-10vh" : "10vh",// Start from top/bottom
           rotate: index % 2 === 0 ? -20 : 20, // Alternate rotations
+          scale:0.5,
           },
           {
             scrollTrigger: {
@@ -131,6 +132,7 @@ this.$nextTick(() => {
             rotate: index % 2 === 0 ? -10 : 10, // Straighten images as they arrive
             duration: 0.5,
             ease: "power2.out",
+            scale:1,
           }
         );
       });
@@ -204,11 +206,15 @@ mm.add("(min-width: 769px)", () => {
 </script>
 
 <style scoped>
+h2{
+  font-family: "Poppins", serif;
+  font-weight: 1300;
 
+  
+}
 .certs h2 {
   align-self: flex-start;
   padding-bottom: 20px;
-  padding-top: 50px;
 
   
 }
@@ -318,7 +324,7 @@ display: flex;
 }
 @media (max-width: 768px) {
   .wow-text{
-    padding-top: 600px; /* Increase padding on small screens */
+    padding-top: 500px; /* Increase padding on small screens */
   }
 }
 

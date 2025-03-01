@@ -16,7 +16,7 @@
     
 
     <v-container id="projects" class="d-flex flex-column"  >
-      <div class="work-experience">
+      <div class="project-experience mb-10">
       <h2>My Projects</h2>
     </div>
     <div class="project-container">
@@ -69,11 +69,13 @@ export default{
     },
     mounted(){
         this.$nextTick(() => {
+          const heading = document.querySelector(".project-experience"); // Select heading
+          const allElements = [heading, ...this.$refs.projectRefs]; // Include heading + work items
     // Keep first project static
   
 
-        // Animate remaining projects
-        this.$refs.projectRefs.forEach((el, i) => {
+        // Animate reaining projects
+        allElements.forEach((el, i) => {
 
 
             gsap.fromTo(el,
@@ -90,8 +92,8 @@ export default{
                     ease: "power1.in",
                     scrollTrigger: {
                         trigger: el,
-                        start: `top 30%`, 
-                        end: "top 50%",
+                        start: `top 60%`, 
+                        end: "top 90%",
                         toggleActions: "play none none reverse",
                     
                         scrub: 1,
@@ -135,6 +137,7 @@ p{
   align-items: center;
 
   border: 1px solid transparent; /* Ensures a base border exists */
+  height: auto;
 
 
 }
@@ -148,20 +151,24 @@ p{
   font-weight: bold;
   margin-top: 10px;
   text-align: center;
-  color: wheat;
+  color: black;
 }
-
+.project-item p {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal; /* Allows multiline text */
+}
 .project-item {
   text-decoration: none;
-  color: white;
+  color: black;
   width: 70%; /* Adequate width */
   max-width: 500px; /* Prevent too wide */
   
   height: auto; /* Large height */
-  background: black;
+  background: white;
   box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
   border-radius: 15px;
-  overflow: hidden;
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -174,7 +181,7 @@ p{
 }
 .project-item img {
   width: 100%;
-  height: min(100vh,370px);
+  height: min(100vh,230px);
   border-radius: 10px;
 
 }
