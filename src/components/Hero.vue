@@ -11,7 +11,7 @@
 
 <template>
 
-<v-container id="home" class="d-flex justify-center align-center" style="height:100vh;  text-align: center;  padding-bottom: 30px;">
+<v-container id="home" class="d-flex justify-center align-center" style="height:120vh;  text-align: center;  padding-bottom: 30px;">
     
     <v-card
       class="rounded-lg intro-table"

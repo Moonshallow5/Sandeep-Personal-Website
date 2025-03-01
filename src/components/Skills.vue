@@ -23,9 +23,9 @@
       elevation="8"
       ref="skillRefs"
 
-      @mouseover="startShimmer(index)"
-    @animationend="stopShimmer(index)"
-    :class="{ 'shimmer-active': activeShimmers.includes(index) }"
+      @mouseover="startShimmer(skill.name)"
+    @animationend="stopShimmer(skill.name)"
+    :class="{ 'shimmer-active': activeShimmers.includes(skill.name) }"
     >
     <div class="icon-container">
             <i v-if="skill.icon" :class="skill.icon" style="font-size: 50px; margin-bottom: 20px;" :style="{ color: skill.color }"/>
@@ -48,9 +48,9 @@
           elevation="8"
           ref="skillRefs"
          
-          @mouseover="startShimmer(index)"
-    @animationend="stopShimmer(index)"
-    :class="{ 'shimmer-active': activeShimmers.includes(index) }"
+          @mouseover="startShimmer(skill.name)"
+    @animationend="stopShimmer(skill.name)"
+    :class="{ 'shimmer-active': activeShimmers.includes(skill.name) }"
         >
           <i :class="skill.icon"
           class="skill-icon"  style="font-size: 50px; margin-bottom: 20px;" :style="{ color: skill.color }"></i>
@@ -72,9 +72,9 @@
           elevation="8"
           ref="skillRefs"
          
-          @mouseover="startShimmer(index)"
-    @animationend="stopShimmer(index)"
-    :class="{ 'shimmer-active': activeShimmers.includes(index) }"
+          @mouseover="startShimmer(skill.name)"
+    @animationend="stopShimmer(skill.name)"
+    :class="{ 'shimmer-active': activeShimmers.includes(skill.name) }"
         >
           <i :class="skill.icon"
           class="skill-icon"  style="font-size: 50px; margin-bottom: 20px;" :style="{ color: skill.color }"></i>
@@ -160,13 +160,13 @@ const allElements = [heading,frontendText,backendText, ...skillCards,mlText];
     };
   },
   methods: {
-    startShimmer(index) {
-      if (!this.activeShimmers.includes(index)) {
-        this.activeShimmers.push(index); // Add card to active shimmer list
+    startShimmer(skillname) {
+      if (!this.activeShimmers.includes(skillname)) {
+        this.activeShimmers.push(skillname); // Add card to active shimmer list
       }
     },
-    stopShimmer(index) {
-      this.activeShimmers = this.activeShimmers.filter((i) => i !== index); // Remove after animation ends
+    stopShimmer(skillname) {
+      this.activeShimmers = this.activeShimmers.filter((name) => name !== skillname); // Remove after animation ends
     },
   },
 };
