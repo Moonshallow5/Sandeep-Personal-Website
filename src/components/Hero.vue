@@ -125,7 +125,7 @@ export default{
     },
     mounted(){
       window.addEventListener("scroll", this.handleScroll);
-      this.typewriter()
+      this.cycleWords()
     },
     methods:{
       handleScroll() {
@@ -136,40 +136,25 @@ export default{
         this.showScrollNotification = true;
       }
     },
-      
-    typewriter() {
-      const words = ["Full Stack Engineer", "Data Scientist","Cert achiever"];
-      const typewriterEl = document.querySelector(".typewriter");
+    cycleWords() {
+  const words = ["Full Stack Engineer", "Data Scientist", "Cert Achiever"];
+  const typewriterEl = document.querySelector(".typewriter");
+  
+  let wordIndex = 0;
 
-      let wordIndex = 0;
-      let charIndex = 0;
-      let isDeleting = false;
+  const showNextWord = () => {
+    typewriterEl.style.opacity = 0;
+    setTimeout(() => {
+      typewriterEl.textContent = words[wordIndex]; 
+      typewriterEl.style.opacity = 1;
+      wordIndex = (wordIndex + 1) % words.length; 
+    }, 500); 
 
-      const typeEffect = () => {
-        let currentWord = words[wordIndex];
-        let displayedText = currentWord.substring(0, charIndex);
-        typewriterEl.textContent = displayedText; // Update text
+    setTimeout(showNextWord, 3000); 
+  };
 
-        if (!isDeleting) {
-          charIndex++;
-        } else {
-          charIndex--;
-        }
-
-        if (charIndex === currentWord.length + 1) {
-          isDeleting = true;
-          setTimeout(typeEffect, 1000); // Pause before deleting
-        } else if (charIndex === -1 && isDeleting) {
-          isDeleting = false;
-          wordIndex = (wordIndex + 1) % words.length;
-          setTimeout(typeEffect, 500);
-        } else {
-          setTimeout(typeEffect, isDeleting ? 50 : 100);
-        }
-      };
-
-      typeEffect();
-    },
+  showNextWord();
+},
       handleNavClick(section) {
         if (!this.showMobileMenu && window.innerWidth <= 768) {
         return; // Do nothing if menu is closed on small screens
@@ -383,7 +368,11 @@ p{
 
 
 
-
+.typewriter {
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+  
+}
 .nav-menu {
 border-radius: 100px;
 position: fixed;
