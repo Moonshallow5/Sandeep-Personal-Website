@@ -1,16 +1,8 @@
-<!-- eslint-disable vue/first-attribute-linebreak -->
-<!-- eslint-disable vue/html-closing-bracket-newline -->
-<!-- eslint-disable vue/singleline-html-element-content-newline -->
-<!-- eslint-disable vue/no-multi-spaces -->
-<!-- eslint-disable vue/html-closing-bracket-spacing -->
-<!-- eslint-disable vue/max-attributes-per-line -->
-<!-- eslint-disable vue/html-indent -->
-<!-- eslint-disable vue/html-self-closing -->
-<!-- eslint-disable vue/multiline-html-element-content-newline -->
+
 
 
 <template>
-    <v-container class="d-flex " >
+    <v-container class="d-flex " style="margin-top: 100px;" >
 
     <div class="certs">
         <h2 class="cert-text">My Certificates</h2>

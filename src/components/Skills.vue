@@ -187,7 +187,7 @@ h2{
   height: 200px;
   width: 100%; /* Flexible width based on container */
   aspect-ratio: 4 / 5; /* Keeps consistent height ratio */
-  margin: 10px;
+  margin-bottom: 20px;
   border-radius: 15px;
   background: linear-gradient(145deg, #1E1E2A, #A6A6C3);
   

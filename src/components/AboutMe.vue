@@ -1,12 +1,3 @@
-<!-- eslint-disable vue/first-attribute-linebreak -->
-<!-- eslint-disable vue/html-closing-bracket-newline -->
-<!-- eslint-disable vue/singleline-html-element-content-newline -->
-<!-- eslint-disable vue/no-multi-spaces -->
-<!-- eslint-disable vue/html-closing-bracket-spacing -->
-<!-- eslint-disable vue/max-attributes-per-line -->
-<!-- eslint-disable vue/html-indent -->
-<!-- eslint-disable vue/html-self-closing -->
-<!-- eslint-disable vue/multiline-html-element-content-newline -->
 
 
 <template>
