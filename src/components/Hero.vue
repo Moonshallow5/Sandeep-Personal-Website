@@ -22,7 +22,7 @@
 </div>
 
 
-<v-container id="home" class="d-flex justify-center align-center" style="height:130vh;  text-align: center;  padding-bottom: 10px;">
+<v-container id="home" class="d-flex justify-center align-center" style="min-height: 130vh;  text-align: center;  padding-bottom: 10px;">
     
     <v-card
       class="rounded-lg intro-table"
@@ -64,12 +64,12 @@
       </v-row>
       
 
-      <div class="description-text" style="margin-bottom: 10px; color: black;">
+      <div class="description-text" style="margin-bottom: 10px; color: black; text-align: left;">
       <span>I'm a passionate, self-started software engineer. I make products that are performant and beautiful. </span>
         <span>Building things is what I live for</span>
         </div>
 
-     <div class="description-text" style=" color: black;">I am also a <span ref="typewriter" class="typewriter name-gradient" style=" font-weight: 1700;
+     <div class="description-text" style=" color: black; text-align: left;">I am also a <span ref="typewriter" class="typewriter name-gradient" style=" font-weight: 1700;
   font-size: 50px;">_</span></div>
 
      <div class="social-icons">
@@ -243,8 +243,6 @@ p{
 }
 /* Rainbow gradient text style */
 .name-gradient {
-
-  font-size: 1.25rem;
   font-weight: bold;
   background: linear-gradient(to right, #f97316, #3b82f6, #10b981); /* Rainbow colors */
   -webkit-background-clip: text;
@@ -275,12 +273,12 @@ p{
 }
 
 .social-icons {
-  margin-top: 50px;
+  margin-top: 20px;
 }
 
 .icon {
   font-size: 40px; /* Adjust icon size */
-  margin: 0 30px; /* Add spacing between icons */
+  margin: 0 10px; /* Add spacing between icons */
   color: black; /* Default color */
   transition: color 0.3s ease-in-out;
   
