@@ -29,7 +29,7 @@
     
     <v-container class="d-flex flex-column" style="margin-bottom: 30px; ">
       <div class="resume">
-        <a href="/Sandeep_Singh_CV_17.pdf" target="_blank" class="cv-link">
+        <a href="/Sandeep_Singh_CV_20.pdf" target="_blank" class="cv-link">
 
       <h2>My CV <i class="fa-solid fa-arrow-up-right-from-square arrow-icon"></i></h2>
       </a>
