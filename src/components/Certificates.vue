@@ -133,7 +133,7 @@ this.$nextTick(() => {
     const tlBoxes = gsap.timeline({
         scrollTrigger: {
             trigger: ".container-section", // This should be the section AFTER the images
-            start: "top 50%",
+            start: "top 42%",
             end: "+=200",
             scrub: 1,
             pin: true, // Keeps boxes in place while they animate
@@ -149,21 +149,21 @@ this.$nextTick(() => {
         .to("#box1", {
             opacity: 1,
             y: "0vh", // Keep first box at its position
-            x: "70vw", // Center align on mobile
+            x: "59vw", // Center align on mobile
             rotate: 0,
             duration: 1,
         })
         .to("#box2", {
             opacity: 1,
-            y: "25vh", // Move below the first box
-            x: "46vw",
+            y: "20vh", // Move below the first box
+            x: "34vw",
             rotate: 0,
             duration: 1,
         })
         .to("#box3", {
             opacity: 1,
-            y: "50vh", // Move below the second box
-            x: "16vw",
+            y: "40vh", // Move below the second box
+            x: "8vw",
             rotate: 0,
             duration: 1,
         }, "-=0.5"); // Slight overlap for smoother transition
@@ -214,12 +214,12 @@ h2{
 
 #box1 {
   top: 50%;
-  left: -50vw; /* Start far left */
+  left: -40vw; /* Start far left */
   transform: translateY(-50%);
 }
 #box2 {
   top: 50%;
-  left: -25vw; /* Starts from the right */
+  left: -15vw; /* Starts from the right */
   transform: translateY(-50%);
   
 
@@ -228,7 +228,7 @@ h2{
 
 #box3 {
   top: 50%;
-  left: 5vw; /* Starts from the right */
+  left: 10vw; /* Starts from the right */
   transform: translateY(-50%);
   
 

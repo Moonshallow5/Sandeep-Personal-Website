@@ -28,7 +28,7 @@
       class="rounded-lg intro-table"
       color="black"
       elevation="0"
-      style=" height: auto; text-align:center; border-width: 1px; width: 100%; background-color: white; "
+      style=" height: auto; text-align:center; width: 100%; background-color: white; "
     >
     <v-row class="justify-start">
       <v-col cols="auto">
@@ -59,7 +59,7 @@
       cols="auto"
       class="d-flex align-center"
     >
-      <h2 ref="name"  style=" align-items: center;  margin-bottom: 10px;" > <span class="name-gradient">Hi, I'm Sandeep Singh</span> <span class="wave">👋</span></h2> 
+      <h2 ref="name" class="wave-thing"  style=" align-items: center;  margin-bottom: 10px;" > <span class="name-gradient">Hi, I'm Sandeep Singh</span> <span class="wave">👋</span></h2> 
       </v-col>
       </v-row>
       
@@ -69,8 +69,7 @@
         <span>Building things is what I live for</span>
         </div>
 
-     <div class="description-text" style=" color: black; text-align: left;">I am also a <span ref="typewriter" class="typewriter name-gradient" style=" font-weight: 1700;
-  font-size: 50px;">_</span></div>
+     <div class="description-text" style=" color: black; text-align: left;">I am also a <span ref="typewriter" class="typewriter name-gradient" style=" display: block; font-weight: 1700;">_</span></div>
 
      <div class="social-icons">
         <a href="https://github.com/Moonshallow5" target="_blank" class="icon">
@@ -137,7 +136,7 @@ export default{
       }
     },
     cycleWords() {
-  const words = ["Full Stack Engineer", "Data Scientist", "Cert Achiever"];
+  const words = ["Full Stack Developer", "Data Scientist", "Cert Achiever"];
   const typewriterEl = document.querySelector(".typewriter");
   
   let wordIndex = 0;
@@ -150,7 +149,7 @@ export default{
       wordIndex = (wordIndex + 1) % words.length; 
     }, 500); 
 
-    setTimeout(showNextWord, 3000); 
+    setTimeout(showNextWord, 2000); 
   };
 
   showNextWord();
@@ -199,7 +198,8 @@ export default{
   transition: transform 0.3s ease-in-out;
 
 }
-.v-card:hover .wave {
+.wave-thing:hover .wave,
+.wave:hover {
   animation: wave-animation 1.5s infinite;
 }
 
@@ -229,12 +229,12 @@ p{
 /* Rainbow gradient text style */
 .name-gradient {
   font-weight: bold;
-  background: linear-gradient(to right, #f97316, #3b82f6, #10b981); /* Rainbow colors */
+  background: linear-gradient(90deg, #f97316, #3b82f6, #10b981); /* Rainbow colors */
   -webkit-background-clip: text;
   color: transparent;
-  background-size: 200% 100%;
-  background-position: 0 0;
-  animation: gradientMove 3s ease-in-out infinite alternate;
+  background-size: 300% 100%;
+  background-position: 0 50;
+  animation: gradientMove 6s ease-in-out infinite alternate;
 
 }
 @keyframes gradientMove {
@@ -371,6 +371,7 @@ p{
 .typewriter {
   opacity: 1;
   transition: opacity 0.5s ease-in-out;
+  font-size: 50px;
   
 }
 .nav-menu {
@@ -468,6 +469,30 @@ background-color: rgba(255, 255, 255, 0.3); /* Semi-transparent white */
   
 }
 }
+
+@media (max-width: 400px) {
+  #home {
+    min-height: 160vh !important;
+
+  }
+}
+@media (max-width: 600px) {
+  .typewriter {
+    font-size: 38px;
+  }
+}
+@media (max-width: 420px) {
+  .typewriter {
+    font-size: 30px;
+  }
+}
+@media (max-width: 380px) {
+  #home {
+    min-height: 180vh !important;
+  }
+  
+}
+
 
 
 </style>
