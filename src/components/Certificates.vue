@@ -155,14 +155,14 @@ this.$nextTick(() => {
         })
         .to("#box2", {
             opacity: 1,
-            y: "20vh", // Move below the first box
+            y: "25vh", // Move below the first box
             x: "34vw",
             rotate: 0,
             duration: 1,
         })
         .to("#box3", {
             opacity: 1,
-            y: "40vh", // Move below the second box
+            y: "50vh", // Move below the second box
             x: "8vw",
             rotate: 0,
             duration: 1,

@@ -11,8 +11,8 @@ export const works=[
         id: 1,
         company:'Pimato | Full Stack Engineer',
         description:[
-        'Worked on the frontend design of our team building chatbots.',
-  'Utilized Vue.js and Vuetify to develop our chatbots.',
+        'Worked on the frontend design of our team building portals for customers, resellers and stakeholders.',
+  'Utilized Vue.js and Vuetify to evelop most of my frontend applications. Discussed with other members of my team, QA Engineers, backend team and stakeholders.',
   'Developed Dataflex, a tool which allows users to upload text heavy documents and by using Amazon Textract, with a query, be able to have Q&A with users on relevant information on documents',
   'Implemented scalable and maintainable infrastructure using Amazon Cloud Development Kit (CDK).',
   'Built APIs for Ajax requests and tested them with Postman API.',
