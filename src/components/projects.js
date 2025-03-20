@@ -39,7 +39,7 @@ export const projects=[
         image:{
             url: img2,
         },
-        description: "A image classfication project, utilizing efficinetnet-b2, which received test accuracy of 90% to detect types of food within images. Has been deployed onto Flutter to be used by all devices."
+        description: "A image classfication project, utilizing efficinetnet-b2, which received test accuracy of 90% to detect types of food within images. Has been deployed onto Flutter."
     },
 
     {
