@@ -178,7 +178,7 @@ ul{
   display: flex;
   flex-direction: column; /* Stack items vertically */
 
-  gap: 50px;
+  gap: 20px;
   white-space: nowrap;
   padding: 20px;
 
@@ -195,7 +195,7 @@ ul{
 
 }
 .work-description {
-  margin-top: 5px; /* Adds spacing below title */
+  
   text-align: left;
 }
 .work-description li {
@@ -228,13 +228,13 @@ ul{
 .work-item {
   text-decoration: none;
   color: black;
-  width: 90%;
+  width: 100%;
 
 
-  height: auto; /* Allows content to adjust */
-  border-radius: 10px;
-padding: 10px;
-  opacity: 0; /* Initially hidden */
+  height: auto; 
+  border-radius: 30px;
+  padding: 10px;
+  opacity: 0; 
 
   text-align: center;
   word-wrap: break-word;

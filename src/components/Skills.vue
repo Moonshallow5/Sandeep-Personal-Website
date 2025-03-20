@@ -190,7 +190,6 @@ h2{
   margin-bottom: 20px;
   border-radius: 15px;
   background: linear-gradient(145deg, #1E1E2A, #A6A6C3);
-  
   position: relative;
   overflow: hidden;
   transition: all 0.3s ease-in-out;
@@ -198,6 +197,12 @@ h2{
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+@media screen and (max-width: 400px) {
+  .skill-card{
+    max-width: 150px;
+  }
 }
 .skill-icon {
   font-size: clamp(2rem, 5vw, 3rem); /* Scales icon size based on screen */

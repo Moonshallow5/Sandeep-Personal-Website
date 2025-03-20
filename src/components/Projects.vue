@@ -2,40 +2,33 @@
 
 <template>
 
-
-    
-
     <v-container id="projects" class="d-flex flex-column"  >
-      <div class="project-experience mb-10">
-      <h2>My Projects</h2>
-    </div>
-    <div class="project-container">
-      <a
-        v-for="(project, index) in projects"
-        :key="index"
-        ref="projectRefs"
-        :href="project.github"
-        target="_blank"
-        class="project-item"
-      >
+        <div class="project-experience mb-10">
+          <h2>My Projects</h2>
+        </div>
+      <div class="project-container">
+        <a
+          v-for="(project, index) in projects"
+          :key="index"
+          ref="projectRefs"
+          :href="project.github"
+          target="_blank"
+          class="project-item"
+        >
 
-      <img :src="project.image.url" :alt="project.title" class="project-image" />
+        <img :src="project.image.url" :alt="project.title" class="project-image" />
 
-      
+        
 
-      <p class="project-title">{{ project.title }}</p>
-      <div class="github-container">
-      <a :href="project.github" target="_blank" class="github-link">
-      <i class="fab fa-github"></i> <!-- FontAwesome GitHub icon -->
-    </a>
-  </div>
-    <p>{{ project.description }}</p>
-
-    
-      </a>
-    </div>
-
-
+        <p class="project-title">{{ project.title }}</p>
+        <div class="github-container">
+          <a :href="project.github" target="_blank" class="github-link">
+            <i class="fab fa-github"></i> 
+          </a>
+        </div>
+        <p>{{ project.description }}</p>
+        </a>
+      </div>
 
     </v-container>
 </template>
@@ -45,7 +38,7 @@
 <script>
 
 import { projects } from "./projects";
-import gsap from "gsap"; // Import GSAP
+import gsap from "gsap"; 
 import ScrollTrigger from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
@@ -61,12 +54,7 @@ export default{
         this.$nextTick(() => {
           const heading = document.querySelector(".project-experience"); // Select heading
           const allElements = [heading, ...this.$refs.projectRefs]; // Include heading + work items
-    // Keep first project static
-  
-
-        // Animate reaining projects
         allElements.forEach((el, i) => {
-
 
             gsap.fromTo(el,
                 {
@@ -126,16 +114,11 @@ p{
 
   align-items: center;
 
-  border: 1px solid transparent; /* Ensures a base border exists */
   height: auto;
 
 
 }
-.project-item:hover {
-  border-width: 1px;
-  border-color: aqua;
 
-}
 .project-title {
   font-size: 20px;
   font-weight: bold;
@@ -144,17 +127,16 @@ p{
   color: black;
 }
 .project-item p {
-  word-wrap: break-word;
-  overflow-wrap: break-word;
+
   white-space: normal; /* Allows multiline text */
 }
 .project-item {
   text-decoration: none;
   color: black;
-  width: 70%; /* Adequate width */
-  max-width: 500px; /* Prevent too wide */
+  width: 70%;
+  max-width: 500px; 
   
-  height: auto; /* Large height */
+  height: auto; 
   background: white;
   box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
   border-radius: 15px;
@@ -164,7 +146,6 @@ p{
   align-items: center;
   padding: 20px;
   position: relative;
-  border: 1px solid transparent; /* Ensures a base border exists */
 
 
 

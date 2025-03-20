@@ -5,7 +5,8 @@
 
 <div class="container-border">
 <div class="nav-menu"> 
-  <i class="fas fa-bars mb-3"  @click="showMenu"> 
+  <i class="fas fa-bars mb-3"    :class="showMobileMenu ? 'fas fa-times' : 'fas fa-bars'" 
+  @click="showMenu"> 
   </i> 
     <div
     class="nav-content"
@@ -270,7 +271,7 @@ p{
 }
 
 .icon:hover {
-  color: #007bff; /* Change color on hover */
+  color: gray; /* Change color on hover */
 }
 
 
@@ -408,7 +409,7 @@ li a{
   color: black;
 }
 li a:hover{
-  color: aqua;
+  color:grey;
 }
 }
 .logo a{
@@ -417,7 +418,7 @@ color: black;
 
 }
 .logo a:hover{
-color: aqua;
+color: grey
 
 }
 .nav-menu i {
@@ -427,17 +428,18 @@ display: none;
 .nav-menu {
   border-radius: 40px;
 
-position: fixed;
-backdrop-filter: blur(15px); /* Adds a blur effect for a modern look */
-border: 1px solid rgba(200, 200, 200, 0.5); /* Light border */
-background-color: rgba(255, 255, 255, 0.3); /* Semi-transparent white */
-  left: 10px;
-  margin: 0 auto;
-  z-index: 1000;
-  right:10px;
   align-items: center;
   color: black;
 }
+.nav-items li {
+    margin-bottom: 5px; /* Adjust spacing */
+  }
+  .nav-items li:last-child {
+    margin-bottom: 5px; /* Remove margin from last item */
+  }
+  .logo{
+    margin-bottom: 5px;
+  }
 
 .open-menu {
   opacity: 1;
@@ -466,6 +468,8 @@ background-color: rgba(255, 255, 255, 0.3); /* Semi-transparent white */
   display: block;
   text-align: center;
   margin-top: 10px;
+  font-size: 24px;
+  transition: transform 0.5s ease;
   
 }
 }
