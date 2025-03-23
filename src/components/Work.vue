@@ -1,7 +1,7 @@
 
 
     <template>
-    <v-container id="work" class="d-flex flex-column" style="padding-top: 90px;" >
+    <v-container id="work" class="d-flex flex-column" style="padding-top: 120px;" >
         <div class="work-experience mb-5">
         <h2>My Work Experience</h2>
       </div>
@@ -18,7 +18,7 @@
         >
             <div class="work-header">
                 <div class="work-duration">
-                    <p>{{ work.duration }}</p> <!-- Add this for work duration -->
+                    <p>{{ work.duration }}</p> 
                 </div>
                 <div class="work-content">                
                     <div class="work-title">
@@ -32,7 +32,7 @@
                       <li v-for="(item, idx) in work.description" :key="idx">{{ item }}</li>
                     </ul>
 
-                    <div class="stack-container">
+                    <div class="stack-container ">
                       <v-tooltip v-for="(tech, i) in work.stack" :key="i" location="top"  >
                         <template v-slot:activator="{ props }"  >
                           <span v-bind="props" >
@@ -54,7 +54,7 @@
 
 <script>
 import { works } from "./work";
-import gsap from "gsap"; // Import GSAP
+import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 export default{
@@ -67,27 +67,47 @@ export default{
 
     mounted(){
         this.$nextTick(() => {
-          const heading = document.querySelector(".work-experience"); // Select heading
-          const allElements = [heading, ...this.$refs.workRefs]; // Include heading + work items
-      allElements.forEach((el) => {
-        gsap.fromTo(
-          el,
-          { opacity: 0, y: 30 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.8,
-            ease: "power2.inOut",
-            scrollTrigger: {
-              trigger: el,
-              start: "top 60%",
-              end: "top 90%",
-              toggleActions: "play none none reverse",
-            },
-          }
-        );
-      });
-    })
+    const heading = document.querySelector(".work-experience");
+    const workItems = [...this.$refs.workRefs] || []; 
+    
+     gsap.from(heading, {
+                scrollTrigger: {
+                    trigger: heading, 
+                    start: "clamp(top bottom)", 
+                    end: "clamp(20px 85%)",
+                    toggleActions: "play none none none",
+                    scrub: 1,
+                },
+                y: 80,
+                opacity: 0,
+            })
+
+    workItems.forEach((el,index) => {
+      let yValue = index % 2 === 0 ? 70 : 200; 
+      gsap.fromTo(
+        el,
+        { opacity: 1, y: yValue }, 
+        {
+          y: 0, 
+  
+         
+          scrollTrigger: {
+            trigger: el,
+            start: "clamp(top bottom)", 
+            end: "clamp(20px 85%)",
+            scrub: 1,
+          
+            toggleActions:"play none none none none"
+          },
+        }
+      );
+    });
+    gsap.delayedCall(0.6, () => ScrollTrigger.refresh());
+
+
+  
+  });
+
     },
 }
 
@@ -99,12 +119,12 @@ export default{
 h2{
   font-family: "Poppins", serif;
   font-weight: 1300;
+  font-size: 1.7rem; 
 
-  
 }
 
 p{
-  font-family: 'Poppins', sans-serif; /* Replace 'Poppins' with your chosen font */
+  font-family: 'Poppins', sans-serif; 
   font-weight: 300;
   font-style: normal;
   font-size: 1.1em;
@@ -112,7 +132,7 @@ p{
 
 }
 ul{
-  font-family: 'Poppins', sans-serif; /* Replace 'Poppins' with your chosen font */
+  font-family: 'Poppins', sans-serif; 
   font-weight: 300;
   font-style: normal;
   font-size: 1.1em;
@@ -127,7 +147,7 @@ ul{
   }
 
   .work-content {
-    margin-top: 10px; /* Moves description and stack down */
+    margin-top: 10px; 
   }
   .work-duration{
     width: 100%;
@@ -136,12 +156,12 @@ ul{
 .work-content {
   display: flex;
   flex-direction: column;
-  flex: 1; /* Ensures it takes available space */
+  flex: 1; 
 }
 .work-header {
   display: flex;
   align-items: flex-start;
-  gap: 20px; /* Spacing between duration and title */
+  gap: 20px; 
   width: 100%;
 
 }
@@ -155,19 +175,18 @@ ul{
 }
 
 .stack-container {
+  margin-top: 30px;
 
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
 
 }
 
 .stack-item {
 
-  margin-top: 20px;
   padding-right: 12px ;
  padding-bottom: 10px;
-  font-weight: bold;
+
  
 }
 
@@ -176,7 +195,7 @@ ul{
 
 .work-container {
   display: flex;
-  flex-direction: column; /* Stack items vertically */
+  flex-direction: column; 
 
   gap: 20px;
   white-space: nowrap;
@@ -212,15 +231,15 @@ ul{
 }
 
 .work-item:hover {
-  border: 2px solid rgba(255, 255, 255, 0.8); /* Light border */
-  box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5); /* Glowing effect */
+  border: 2px solid rgba(255, 255, 255, 0.8); 
+  box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5); 
 }
 .work-item {
   transition: border 0.3s ease, box-shadow 0.3s ease;
 }
 
 .work-image {
-  width: 24px; /* Match FontAwesome icon size */
+  width: 24px; 
   height: auto;
   border-radius:30px;
  
@@ -234,13 +253,13 @@ ul{
   height: auto; 
   border-radius: 30px;
   padding: 10px;
-  opacity: 0; 
+  opacity: 1; 
 
   text-align: center;
   word-wrap: break-word;
   white-space: normal;
   overflow-wrap: break-word;
-  border: 2px solid transparent; /* Initially no border */
+  border: 2px solid transparent; 
   transition: border 0.3s ease, box-shadow 0.3s ease;
 }
 

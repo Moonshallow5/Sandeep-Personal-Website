@@ -4,12 +4,29 @@ import img2 from '@/assets/Foodvision.jpg'
 import img3 from '@/assets/maps-gym-markers.png'
 import img4 from '@/assets/drone.png'
 import img5 from '@/assets/odin-project.png'
+import img6 from '@/assets/personal-web.png'
+import img7 from '@/assets/blog-api.png'
+import img8 from '@/assets/good_food.jpg'
 export const projects=[
+
+    {
+        id:0,
+        title:'Personal Website',
+        github: "https://sandeep-personal-website.vercel.app/",
+
+        image:{
+            url: img6,
+        },
+
+
+        description:' Built my personal website all by myself. Using Vue, Vuetify and gsap.'
+
+    },
 
 
     {
 
-        id:0,
+        id:1,
         title:'Image Compression',
         github: "https://github.com/Moonshallow5/Image_Compressor",
         image:{
@@ -21,7 +38,7 @@ export const projects=[
 
     {
 
-        id:1,
+        id:2,
         title:'Odin Projects',
         github: "https://github.com/Moonshallow5/Odin_Project",
         image:{
@@ -33,7 +50,7 @@ export const projects=[
 
     {
 
-        id:2,
+        id:3,
         title:'FoodVision',
         github: "https://github.com/Moonshallow5/Food_Vision_Flutter",
         image:{
@@ -44,7 +61,7 @@ export const projects=[
 
     {
 
-        id:3,
+        id:4,
         title:'Web scraping gyms in Malaysia',
         github: "https://github.com/Moonshallow5/Find-Gyms/",
         image:{
@@ -54,8 +71,32 @@ export const projects=[
     },
 
     {
+        id:5,
+        title:'Blog Website',
+        github: "https://github.com/Moonshallow5/blog-api",
+        image:{
+            url:img7 ,
+        },
+        description: "Built a full-stack website utilizing Vue, Vuetify, PostgreSQL, Express.js, JWT tokens and it's all deployed on Render"
+    
 
-        id:4,
+    },
+
+    {
+        id:6,
+        title:'Android Studio app to recommend food recipes',
+        github: "https://github.com/Moonshallow5/Good_Food",
+        image:{
+            url:img8 ,
+        },
+        description: "Built a full android app with Kotlin and Android Studio to recommend food recipes for students to cook with, also utilized Amazon Alexa to read the recipes",
+    
+
+    },
+
+    {
+
+        id:7,
         title:'Drone Delivery System',
         github: "https://github.com/Moonshallow5/Ilp",
         image:{

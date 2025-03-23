@@ -16,18 +16,9 @@
     <Skills />
 
     <Work />
-    <Projects />
+    <Projects2 />
   
-
-
-
-
-
-
-
-    
-    
-    <v-container class="d-flex flex-column" style="margin-bottom: 30px; ">
+    <v-container class="d-flex flex-column" style="margin-bottom: 30px; margin-top: 70px; ">
       <div class="resume">
         <a href="/Sandeep_Singh_CV_20.pdf" target="_blank" class="cv-link">
 
@@ -44,11 +35,10 @@ import Hero from "./Hero.vue";
 import Certificates from "./Certificates.vue";
 import Work from "./Work.vue";
 import AboutMe from "./AboutMe.vue";
-import Projects from "./Projects.vue";
 import gsap from "gsap"; // Import GSAP
 import ScrollTrigger from "gsap/ScrollTrigger";
 import Skills from "./Skills.vue";
-
+import Projects2 from "./Projects2.vue";
 
 
 gsap.registerPlugin(ScrollTrigger);
@@ -60,7 +50,8 @@ export default{
     Certificates,
     AboutMe,
     Work,
-    Projects,
+    Skills,
+    Projects2
   },
 
   data() {

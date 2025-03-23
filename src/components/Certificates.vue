@@ -98,15 +98,28 @@ export default{
 
         
 this.$nextTick(() => {
+  const heading = document.querySelector(".cert-text"); // Select heading
+  gsap.from(heading, {
+                scrollTrigger: {
+                    trigger: heading, 
+                    start: "clamp(top bottom)", 
+                    end: "clamp(20px 85%)",
+                    toggleActions: "play none none none",
+                    scrub: 1,
+                },
+                y: 80,
+                opacity: 0,
+            })
+
       this.$refs.imageRefs.forEach((el, index) => {
 
         gsap.fromTo(
           el,
           {
             opacity: 0,
-            x: index % 2 === 0 ? "-10vw" : "10vw", // Start from left/right
-          y: index < 3 ? "-10vh" : "10vh",// Start from top/bottom
-          rotate: index % 2 === 0 ? -20 : 20, // Alternate rotations
+            x: index % 2 === 0 ? "-10vw" : "10vw", 
+          y: index < 3 ? "-10vh" : "10vh",
+          rotate: index % 2 === 0 ? -20 : 20, 
           scale:0.5,
           },
           {
@@ -119,9 +132,9 @@ this.$nextTick(() => {
 
             },
             opacity: 1,
-            x: 0, // Stagger positioning towards center
+            x: 0, 
             y: 0,
-            rotate: index % 2 === 0 ? -10 : 10, // Straighten images as they arrive
+            rotate: index % 2 === 0 ? -10 : 10,
             duration: 0.5,
             ease: "power2.out",
             scale:1,
@@ -133,63 +146,84 @@ this.$nextTick(() => {
     const tlBoxes = gsap.timeline({
         scrollTrigger: {
             trigger: ".container-section", // This should be the section AFTER the images
-            start: "top 42%",
-            end: "+=200",
+            start: "top 30%",
+            end: "+=500",
             scrub: 1,
-            pin: true, // Keeps boxes in place while they animate
+            pin: true, 
+            pinSpacing:true
         },
     });
     const mm = gsap.matchMedia();
 
 
     mm.add("(max-width: 768px)", () => {
-    tlBoxes.clear(); // Reset previous animations
+    tlBoxes.clear(); 
 
     tlBoxes
         .to("#box1", {
             opacity: 1,
-            y: "0vh", // Keep first box at its position
-            x: "59vw", // Center align on mobile
+            y: "0vh", 
+            x: "0vw", 
+            left: "50%",
+            transform: "translateX(-50%)",
+
             rotate: 0,
             duration: 1,
         })
         .to("#box2", {
             opacity: 1,
-            y: "25vh", // Move below the first box
-            x: "34vw",
+            y: "20vh",
+            x: "0vw", 
+            left: "50%",
+            transform: "translateX(-50%)",
+
             rotate: 0,
             duration: 1,
         })
         .to("#box3", {
             opacity: 1,
-            y: "50vh", // Move below the second box
-            x: "8vw",
+            y: "40vh", 
+            x: "0vw",
+            left: "50%",
+            transform: "translateX(-50%)",
             rotate: 0,
             duration: 1,
-        }, "-=0.5"); // Slight overlap for smoother transition
+        }, "-=0.5");
 });
 mm.add("(min-width: 769px)", () => {
     tlBoxes.clear();
 
     tlBoxes
-        .to("#box1", {
+        .fromTo("#box1",
+        { opacity: 0, x: "-100vw" },  // Start from far left, invisible
+ 
+        
+        {
             opacity: 1,
-            x: "50vw",
+            x: "-40vw",
             rotate: -12,
             duration: 1,
         })
-        .to("#box2", {
+        .fromTo("#box2", 
+        { opacity: 0, x: "100vw" }, 
+
+        
+        {
             opacity: 1,
-            x: "50vw",
+            x: "-15vw",
             rotate: -6,
             duration: 1,
         })
-        .to("#box3", {
+        .fromTo("#box3", 
+        { opacity: 0, x: "-100vw" }, 
+
+        
+        {
             opacity: 1,
-            x: "50vw",
+            x: "10vw",
             rotate: 6,
             duration: 1,
-        }, "-=0.5");
+        });
 });
 
     }
@@ -201,6 +235,8 @@ mm.add("(min-width: 769px)", () => {
 h2{
   font-family: "Poppins", serif;
   font-weight: 1300;
+  font-size: 1.8rem; 
+
 
   
 }
@@ -211,27 +247,20 @@ h2{
   
 }
 
+@media (max-width: 768px) {
 
-#box1 {
-  top: 50%;
-  left: -40vw; /* Start far left */
-  transform: translateY(-50%);
-}
-#box2 {
-  top: 50%;
-  left: -15vw; /* Starts from the right */
-  transform: translateY(-50%);
-  
-
-}
-
-
-#box3 {
-  top: 50%;
-  left: 10vw; /* Starts from the right */
-  transform: translateY(-50%);
-  
-
+  #box1 {
+        left: -10vw; 
+        opacity: 0;
+    }
+    #box2 {
+        left: -10vw; 
+        opacity: 0;
+    }
+    #box3 {
+        left: -10vw;
+        opacity: 0;
+    }
 }
 #images-container {
 
@@ -247,13 +276,13 @@ display: flex;
 .image-container {
 
 
-  width: 270px; /* Adjust image size */
+  width: 270px;
   height: 200px;
   transition: opacity 0.5s ease-out;
 }
 .image-container img {
-  width: 100%; /* Ensures image fits inside container */
-  height: 100%; /* Maintains aspect ratio */
+  width: 100%; 
+  height: 100%; 
 
  
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
@@ -284,9 +313,8 @@ display: flex;
 }
 .heading-container {
   display: flex;
-  align-items: center; /* Aligns text and icon on the same line */
-  gap: 8px; /* Adjust spacing between the text and the icon */
-  
+  align-items: center; 
+  gap: 8px; 
 }
 .description-box{
   color: white;
@@ -304,19 +332,16 @@ display: flex;
   color: grey;
 }
 .wow-text{
-  padding-top: 200px; /* Default for large screens */
+  padding-top: 300px; 
 }
-.wow-header {
 
-  margin-bottom: 15px; /* Space between header and paragraph */
-}
 .text-container {
   text-align: center;
 
 }
 @media (max-width: 768px) {
   .wow-text{
-    padding-top: 500px; /* Increase padding on small screens */
+    padding-top: 600px; 
   }
 }
 

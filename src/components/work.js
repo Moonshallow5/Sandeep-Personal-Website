@@ -19,10 +19,12 @@ export const works=[
   'Delivered our AI chatbot with numerous functionalities to the largest AI summit in Malaysia as the lead frontend developer.'
         ],
         stack: [
-            { name: 'Vue.js', icon: 'fa-brands fa-vuejs', color: '#42b883' },
-            { name: 'Vuetify', icon: 'fa-solid fa-layer-group', color: '#1867C0' },
-            { name: 'AWS', icon: 'fa-brands fa-aws', color: '#FF9900' },
-            { name: 'Postman', icon: 'fa-solid fa-flask', color: '#EF5B25' }
+            { name: 'Vue.js', icon: 'fa-brands fa-vuejs', color: '#000000' },
+            { name: 'Vuetify', icon: 'devicon-vuetify-plain colored', color: '#000000' },
+            { name: 'AWS', icon: 'fa-brands fa-aws', color: '#000000' },
+            { name: 'Postman', icon: 'devicon-postman-plain', color: '#000000' },
+            {name:'Figma',icon:' devicon-figma-plain',color:'#000000'},
+            {name:'Jest',icon: 'devicon-jest-plain',color:'#000000'}
         ],
         image_url:img1,
         link:'https://www.pimato.com/',
@@ -40,8 +42,8 @@ export const works=[
         ],
         stack:[
             
-            { name: "Scikit-learn", icon: "fa-solid fa-brain", color: "#F7931E" },
-            { name: "TensorFlow", icon: "fa-solid fa-square-root-variable", color: "#FF6F00" },
+            { name: "Scikit-learn", icon: "devicon-scikitlearn-plain colored", color: "#000000" },
+            { name: "TensorFlow", icon: "devicon-tensorflow-original colored", color: "#000000" },
         
         ],
         image_url:img2,
@@ -58,10 +60,10 @@ export const works=[
         ],
         stack:[
             
-            { "name": "Flask", "icon": "fa-solid fa-flask", "color": "#F7931E" },
-            { name: "HTML5", icon: "fa-brands fa-html5", color: "#E34F26" },
-            { name: "CSS3", icon: "fa-brands fa-css3", color: "#1572B6" },
-            { name: "JavaScript", icon: "fa-brands fa-js", color: "#F7DF1E" },
+            { "name": "Flask", "icon": "devicon-flask-original colored", "color": "#000000" },
+            { name: "HTML5", icon: "fa-brands fa-html5", color: "#000000" },
+            { name: "CSS3", icon: "fa-brands fa-css3", color: "#000000" },
+            { name: "JavaScript", icon: "fa-brands fa-js", color: "#000000" },
 
 
 

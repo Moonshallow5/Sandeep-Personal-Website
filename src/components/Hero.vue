@@ -23,7 +23,7 @@
 </div>
 
 
-<v-container id="home" class="d-flex justify-center align-center" style="min-height: 130vh;  text-align: center;  padding-bottom: 10px;">
+<v-container id="home" class="d-flex justify-center align-center" style=" text-align: center;  padding-bottom: 10px;">
     
     <v-card
       class="rounded-lg intro-table"
@@ -250,10 +250,11 @@ p{
 
 
 .description-text  {
-   font-family: 'Articulat CTF', sans-serif;
+  font-family: "Poppins", serif;
   
   font-size: 40px;
-  font-weight: 100;
+  font-weight: 200;
+  font-style: normal;
 
   margin-top: 1rem;
 }
@@ -473,10 +474,20 @@ display: none;
   
 }
 }
+#home {
+    min-height: 130vh !important;
 
+  }
+
+@media (max-width: 680px) {
+  #home {
+    min-height: 140dvh !important;
+
+  }
+}
 @media (max-width: 400px) {
   #home {
-    min-height: 160vh !important;
+    min-height: 160dvh !important;
 
   }
 }
@@ -490,12 +501,7 @@ display: none;
     font-size: 30px;
   }
 }
-@media (max-width: 380px) {
-  #home {
-    min-height: 180vh !important;
-  }
-  
-}
+
 
 
 

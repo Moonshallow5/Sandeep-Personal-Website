@@ -10,7 +10,7 @@
 
 </v-row>
 
-<h3 class="frontend-text">Frontend:</h3>
+<h3 class="frontend-text mb-5">Frontend:</h3>
 <v-row class="d-flex flex-wrap">
   <v-col
       v-for="(skill, index) in skills"
@@ -35,7 +35,7 @@
     </v-col>
     </v-row>
 
-    <h3 class="backend-text">Backend:</h3>
+    <h3 class="backend-text mb-5">Backend:</h3>
     <v-row class="d-flex flex-wrap">
       <v-col
         v-for="(skill, index) in backendSkills"
@@ -59,7 +59,7 @@
       </v-col>
     </v-row>
 
-    <h3 class="ml-text">ML/Data Science:</h3>
+    <h3 class="ml-text mb-5">ML/Data Science:</h3>
     <v-row class="d-flex flex-wrap">
       <v-col
         v-for="(skill, index) in DataScience"
@@ -90,7 +90,7 @@
 
 <script >
 
-import gsap from "gsap"; // Import GSAP
+import gsap from "gsap"; 
 import ScrollTrigger from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
@@ -99,13 +99,13 @@ export default {
   mounted(){
 
     this.$nextTick(() => {
-          const heading = document.querySelector(".skill-experience"); // Select heading
+          const heading = document.querySelector(".skill-experience");
           const frontendText = document.querySelector("h3.frontend-text");
           const backendText = document.querySelector("h3.backend-text");
           const mlText = document.querySelector("h3.ml-text");
           const skillCards = this.$refs.skillRefs ? this.$refs.skillRefs.map(ref => ref.$el) : []; 
 
-// Combine heading and skill cards for animation
+
 const allElements = [heading,frontendText,backendText, ...skillCards,mlText];
          
       allElements.forEach((el) => {
@@ -147,14 +147,15 @@ const allElements = [heading,frontendText,backendText, ...skillCards,mlText];
       backendSkills: [
         { name: "Node.js", icon: "fa-brands fa-node-js", color: "#339933" },
         { name: "PostgreSQL", icon: "fa-solid fa-database", color: "#336791" },
-        { name: "MongoDB", icon: "fa-brands fa-envira", color: "#47A248" },
+        {name:"Express.js",icon: "devicon-express-original"},
+        { name: "MongoDB", icon: "devicon-mongodb-plain", color: "#47A248" },
        
       ],
       DataScience: [
       { name: "Python", icon: "fa-brands fa-python", color: "#3776AB" },
-      { name: "Scikit-learn", icon: "fa-solid fa-brain", color: "#F7931E" },
-      { name: "TensorFlow", icon: "fa-solid fa-square-root-variable", color: "#FF6F00" },
-      { name: "NumPy", icon: "fa-solid fa-cubes", color: "#013243" }
+      { name: "Scikit-learn", icon: "devicon-scikitlearn-plain", color: "#F7931E" },
+      { name: "TensorFlow", icon: "devicon-tensorflow-original", color: "#FF6F00" },
+      { name: "NumPy", icon: "devicon-numpy-plain", color: "#013243" }
        
       ],
     };
@@ -162,11 +163,11 @@ const allElements = [heading,frontendText,backendText, ...skillCards,mlText];
   methods: {
     startShimmer(skillname) {
       if (!this.activeShimmers.includes(skillname)) {
-        this.activeShimmers.push(skillname); // Add card to active shimmer list
+        this.activeShimmers.push(skillname); 
       }
     },
     stopShimmer(skillname) {
-      this.activeShimmers = this.activeShimmers.filter((name) => name !== skillname); // Remove after animation ends
+      this.activeShimmers = this.activeShimmers.filter((name) => name !== skillname);
     },
   },
 };
@@ -178,15 +179,15 @@ const allElements = [heading,frontendText,backendText, ...skillCards,mlText];
 h2{
   font-family: "Poppins", serif;
   font-weight: 1300;
+  font-size: 1.8rem; 
 
-  
 }
 .skill-card {
-  min-width: 120px; /* Minimum width for small screens */
-  max-width: 180px; /* Maximum width to keep it uniform */
+  min-width: 120px; 
+  max-width: 180px; 
   height: 200px;
-  width: 100%; /* Flexible width based on container */
-  aspect-ratio: 4 / 5; /* Keeps consistent height ratio */
+  width: 100%; 
+  aspect-ratio: 4 / 5; 
   margin-bottom: 20px;
   border-radius: 15px;
   background: linear-gradient(145deg, #1E1E2A, #A6A6C3);
@@ -205,7 +206,7 @@ h2{
   }
 }
 .skill-icon {
-  font-size: clamp(2rem, 5vw, 3rem); /* Scales icon size based on screen */
+  font-size: clamp(2rem, 5vw, 3rem); 
 }
 .skill-card.shimmer-active::before {
   opacity: 1;
@@ -228,7 +229,7 @@ h2{
   );
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
-  pointer-events: none; /* Prevent blocking interactions */
+  pointer-events: none; 
 
 
 }
