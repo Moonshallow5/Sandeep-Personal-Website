@@ -481,13 +481,13 @@ display: none;
 
 @media (max-width: 680px) {
   #home {
-    min-height: 140dvh !important;
+    min-height: 140svh !important;
 
   }
 }
 @media (max-width: 400px) {
   #home {
-    min-height: 160dvh !important;
+    min-height: 160svh !important;
 
   }
 }
