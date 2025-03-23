@@ -341,7 +341,7 @@ display: flex;
 }
 @media (max-width: 768px) {
   .wow-text{
-    padding-top: 600px; 
+    padding-top: 500px; 
   }
 }
 

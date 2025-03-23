@@ -83,7 +83,7 @@ export default{
             })
 
     workItems.forEach((el,index) => {
-      let yValue = index % 2 === 0 ? 70 : 200; 
+      let yValue = index % 2 === 0 ? 130 : 200; 
       gsap.fromTo(
         el,
         { opacity: 1, y: yValue }, 
