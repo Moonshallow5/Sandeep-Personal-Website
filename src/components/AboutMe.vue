@@ -8,12 +8,12 @@
 
 
       <p> Having graduated from the <a href="https://www.ed.ac.uk/" 
-        class="highlight-link" target="_blank">University of Edinburgh</a>. I'm currently a Full Stack Developer at <a class="highlight-link"href="https://www.pimato.com/" target="_blank"> Pimato</a>. I am a deeply passionate person, and extremely self driven. As you can see, I built this website all by myself by learning web development trough the 
+        class="highlight-link" target="_blank">University of Edinburgh</a>. I'm currently a Full Stack Developer at <a class="highlight-link"href="https://www.pimato.com/" target="_blank"> Pimato</a>. I am a deeply passionate person, and extremely self driven. As you can see, I built this website all by myself by learning web development through the 
         <a class="highlight-link" href="https://www.theodinproject.com/dashboard">Odin Projects</a>.</p>
         </div>
       <br>
       <div id="about-para-2">
-        <p> I love all things technology and building solutions for problems. It is one of my goals in life to be able to use that love to make a real difference to society through software.</p>
+        <p> I love modern technology and what we can achieve with it. It is one of my goals in life to be able to use that love to make a real difference to society through software.</p>
     </div>
         <br>
     <div id="about-para-3">
@@ -27,7 +27,7 @@
         </span>
       </template>
       <span>Vue.js</span>
-      </v-tooltip>  <a class="highlight-link" href="https://vuejs.org/">Vue</a> 
+      </v-tooltip>  <a class="highlight-link" href="https://vuejs.org/"> Vue</a> 
       + <v-tooltip location="top" >
       <template v-slot:activator="{ props }">
         <span v-bind="props">
@@ -67,7 +67,7 @@
       <span>Express.js</span>
       </v-tooltip>
 
-      <a class="highlight-link" href="https://expressjs.com/"> Express.js</a> , and 
+      <a class="highlight-link" href="https://expressjs.com/"> Express.js</a>, and 
       <v-tooltip location="top" >
       <template v-slot:activator="{ props }">
         <span v-bind="props">

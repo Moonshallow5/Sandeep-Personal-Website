@@ -37,7 +37,8 @@ export const works=[
         company:'Outlier.AI | LLM Tester',
         description:[
         'Focused on building better models in image classification (CNN), speech recognition (LSTM, GRU) and NLP', 
-        'improving the performance of n-gram models and transformers. ',
+        'Improved the performance of n-gram models and transformers. ',
+        'Found ways to produce augmented data by either producing my own plastic data and submitting it to the person who trained the LLM, or researching if there was already a Kaggle dataset with the required data',
 'Optimized LLMs to enhance customer interactions, enabling multiple UK-based companies to deploy AI-driven solutions that improve user experience on their websites',
         ],
         stack:[
