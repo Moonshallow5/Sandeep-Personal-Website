@@ -52,7 +52,7 @@
       class="d-flex align-center"
     >
       
-        <img src="../assets/view-compress.png" class="animated-image mb-5" alt="Avatar" style="width: 100px; border-radius: 20px;">
+        <img ref="animatedImg" src="../assets/view-compress.png" class="animated-image mb-5" alt="Avatar" style="width: 100px; height: 75px; border-radius: 20px;">
      
     </v-col>
    
@@ -126,6 +126,33 @@ export default{
     mounted(){
       window.addEventListener("scroll", this.handleScroll);
       this.cycleWords()
+    
+
+      const img = this.$refs.animatedImg;
+  const originalSrc = img.src; 
+  let isHovering = false; 
+
+  img.addEventListener("mouseenter", () => {
+    isHovering=true
+    img.style.transform = "rotate(360deg)"; 
+  });
+
+  img.addEventListener("transitionend", (event) => {
+    if (event.propertyName === "transform" && isHovering) {
+      img.src = "/LinkedIn.png"; 
+    }
+  });
+
+  img.addEventListener("mouseleave", () => {
+    isHovering=false
+    img.style.transform = "rotate(0deg)"; 
+    
+    setTimeout(() => {
+    if (!isHovering) {
+      img.src = originalSrc; 
+    }
+  }, 500); 
+  });
     },
     methods:{
       handleScroll() {

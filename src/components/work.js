@@ -1,8 +1,6 @@
 import img1 from '@/assets/pimato.jpg';
 import img2 from '@/assets/outlier.png'
 import img3 from '@/assets/apu.jpg'
-import { cyan } from 'vuetify/util/colors';
-
 export const works=[
 
 

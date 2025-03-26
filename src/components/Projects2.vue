@@ -72,7 +72,7 @@ projectElements.forEach((project, index) => {
     let screenWidth = window.innerWidth;
 
   const skewValue =  screenWidth > 650 ? (index % 2 === 0 ? 10 : -10) : (index % 2 === 0 ? 5 : -5) 
-  const moveUp =  screenWidth > 650 ? ( index % 3) * -10 + Math.random() * 15 : ( index % 3) * -5 + Math.random() * 5; 
+  const moveUp =  screenWidth > 650 ? ( index % 3) * -10 + Math.random() * 30 : ( index % 3) * -5 + Math.random() * 5; 
   let scaleValue = screenWidth > 650 ? 1 : 0.6;
 
   gsap.to(project, {
