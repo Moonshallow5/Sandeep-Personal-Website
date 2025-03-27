@@ -21,7 +21,7 @@
       
       class="skill-card"
       elevation="8"
-      ref="skillRefs"
+      ref="skillRefsFrontend"
 
       @mouseover="startShimmer(skill.name)"
     @animationend="stopShimmer(skill.name)"
@@ -46,7 +46,7 @@
         <v-card
           class="skill-card "
           elevation="8"
-          ref="skillRefs"
+          ref="skillRefsBackend"
          
           @mouseover="startShimmer(skill.name)"
     @animationend="stopShimmer(skill.name)"
@@ -70,7 +70,7 @@
         <v-card
           class="skill-card "
           elevation="8"
-          ref="skillRefs"
+          ref="skillRefsMl"
          
           @mouseover="startShimmer(skill.name)"
     @animationend="stopShimmer(skill.name)"
@@ -103,35 +103,129 @@ export default {
           const frontendText = document.querySelector("h3.frontend-text");
           const backendText = document.querySelector("h3.backend-text");
           const mlText = document.querySelector("h3.ml-text");
-          const skillCards = this.$refs.skillRefs ? this.$refs.skillRefs.map(ref => ref.$el) : []; 
+          const frontendCards = this.$refs.skillRefsFrontend?.map(ref => ref.$el) || [];
+          const backendCards = this.$refs.skillRefsBackend?.map(ref => ref.$el) || [];
+          const mlCards=this.$refs.skillRefsMl?.map(ref=> ref.$el)||[];
+          gsap.fromTo(
+      heading,
+      { opacity: 0, y: 30 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.5,
+        ease: "power1.out",
+        scrollTrigger: {
+          trigger: heading,
+          start: "top 80%",
+          end: "top 30%", // Title fades out after cards
+          toggleActions: "play none none reverse",
+        },
+      }
+    );
 
+          gsap.fromTo(
+      frontendCards,
+      { opacity: 0, y: 30 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.5,
+        ease: "power1.out",
+        stagger: 0.1,
+        scrollTrigger: {
+          trigger: frontendText, 
+          start: "top 60%",
+          end: "top 40%", 
+          toggleActions: "play none none reverse",
+        },
+      }
+    );
+    gsap.fromTo(
+      frontendText,
+      { opacity: 0, y: 30 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.5,
+        ease: "power1.out",
+        scrollTrigger: {
+          trigger: frontendText,
+          start: "top 80%",
+          end: "top 30%", 
+          toggleActions: "play none none reverse",
+        },
+      }
+    );
+    gsap.fromTo(
+      backendCards,
+      { opacity: 0, y: 30 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.5,
+        ease: "power1.out",
+        stagger: 0.1,
+        scrollTrigger: {
+          trigger: backendText,
+          start: "top 60%",
+          end: "top 40%", 
+          toggleActions: "play none none reverse",
+        },
+      }
+    );
+    gsap.fromTo(
+      backendText,
+      { opacity: 0, y: 30 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.5,
+        ease: "power1.out",
+        scrollTrigger: {
+          trigger: backendText,
+          start: "top 80%",
+          end: "top 30%", 
+          toggleActions: "play none none reverse",
+        },
+      }
+    );
 
-const allElements = [heading,frontendText,backendText, ...skillCards,mlText];
-         
-      allElements.forEach((el) => {
-        gsap.fromTo(
-          el,
-          { opacity: 0, y: 30 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.5,
-            ease: "power1.in",
-            scrollTrigger: {
-              trigger: el,
-              start: "top 70%",
-              end: "top 90%",
-              toggleActions: "play none none reverse",
-            },
-          }
-        );
-      });
-    })
+    gsap.fromTo(
+      mlCards,
+      { opacity: 0, y: 30 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.5,
+        ease: "power1.out",
+        stagger: 0.1,
+        scrollTrigger: {
+          trigger: mlText, 
+          start: "top 60%",
+          end: "top 40%", 
+          toggleActions: "play none none reverse",
+        },
+      }
+    );
 
-
-  },
-
-  
+    gsap.fromTo(
+      mlText,
+      { opacity: 0, y: 30 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.5,
+        ease: "power1.out",
+        scrollTrigger: {
+          trigger: mlText,
+          start: "top 80%",
+          end: "top 30%", 
+          toggleActions: "play none none reverse",
+        },
+      }
+    );
+  })
+},
   data() {
     
     return {
