@@ -134,8 +134,8 @@ export default {
         stagger: 0.1,
         scrollTrigger: {
           trigger: frontendText, 
-          start: () => window.innerWidth < 768 ? "top 40%" : "top 60%",  
-      end: () => window.innerWidth < 768 ? "top 30%" : "top 40%",   
+          start: () => window.innerWidth < 768 ? "top 50%" : "top 60%",  
+      end: () => window.innerWidth < 768 ? "top 40%" : "top 40%",   
           toggleActions: "play none none reverse",
         },
       }
@@ -167,8 +167,8 @@ export default {
         stagger: 0.1,
         scrollTrigger: {
           trigger: backendText,
-          start: () => window.innerWidth < 768 ? "top 40%" : "top 60%",  
-          end: () => window.innerWidth < 768 ? "top 30%" : "top 40%",
+          start: () => window.innerWidth < 768 ? "top 50%" : "top 60%",  
+          end: () => window.innerWidth < 768 ? "top 40%" : "top 40%",
           toggleActions: "play none none reverse",
         },
       }
@@ -201,8 +201,8 @@ export default {
         stagger: 0.1,
         scrollTrigger: {
           trigger: mlText, 
-          start: () => window.innerWidth < 768 ? "top 40%" : "top 60%",  
-      end: () => window.innerWidth < 768 ? "top 30%" : "top 40%",
+          start: () => window.innerWidth < 768 ? "top 50%" : "top 60%",  
+      end: () => window.innerWidth < 768 ? "top 40%" : "top 40%",
           toggleActions: "play none none reverse",
         },
       }
