@@ -116,8 +116,8 @@ export default {
         ease: "power1.out",
         scrollTrigger: {
           trigger: heading,
-          start: "top 80%",
-          end: "top 30%", // Title fades out after cards
+          start: () => window.innerWidth < 768 ? "top 70%" : "top 80%", 
+          end: () => window.innerWidth < 768 ? "top 30%" : "top 30%",  
           toggleActions: "play none none reverse",
         },
       }
@@ -134,8 +134,8 @@ export default {
         stagger: 0.1,
         scrollTrigger: {
           trigger: frontendText, 
-          start: "top 60%",
-          end: "top 40%", 
+          start: () => window.innerWidth < 768 ? "top 40%" : "top 60%",  
+      end: () => window.innerWidth < 768 ? "top 30%" : "top 40%",   
           toggleActions: "play none none reverse",
         },
       }
@@ -150,8 +150,8 @@ export default {
         ease: "power1.out",
         scrollTrigger: {
           trigger: frontendText,
-          start: "top 80%",
-          end: "top 30%", 
+          start: () => window.innerWidth < 768 ? "top 70%" : "top 80%",  
+          end: () => window.innerWidth < 768 ? "top 30%" : "top 30%",   
           toggleActions: "play none none reverse",
         },
       }
@@ -167,8 +167,8 @@ export default {
         stagger: 0.1,
         scrollTrigger: {
           trigger: backendText,
-          start: "top 60%",
-          end: "top 40%", 
+          start: () => window.innerWidth < 768 ? "top 40%" : "top 60%",  
+          end: () => window.innerWidth < 768 ? "top 30%" : "top 40%",
           toggleActions: "play none none reverse",
         },
       }
@@ -183,8 +183,8 @@ export default {
         ease: "power1.out",
         scrollTrigger: {
           trigger: backendText,
-          start: "top 80%",
-          end: "top 30%", 
+          start: () => window.innerWidth < 768 ? "top 70%" : "top 80%", 
+          end: () => window.innerWidth < 768 ? "top 30%" : "top 30%",    
           toggleActions: "play none none reverse",
         },
       }
@@ -201,8 +201,8 @@ export default {
         stagger: 0.1,
         scrollTrigger: {
           trigger: mlText, 
-          start: "top 60%",
-          end: "top 40%", 
+          start: () => window.innerWidth < 768 ? "top 40%" : "top 60%",  
+      end: () => window.innerWidth < 768 ? "top 30%" : "top 40%",
           toggleActions: "play none none reverse",
         },
       }
@@ -218,8 +218,8 @@ export default {
         ease: "power1.out",
         scrollTrigger: {
           trigger: mlText,
-          start: "top 80%",
-          end: "top 30%", 
+          start: () => window.innerWidth < 768 ? "top 70%" : "top 80%",  
+          end: () => window.innerWidth < 768 ? "top 30%" : "top 30%",   
           toggleActions: "play none none reverse",
         },
       }
