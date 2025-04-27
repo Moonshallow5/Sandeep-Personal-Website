@@ -27,7 +27,7 @@
 
     </v-container>
 
-    <v-container class="container-section">
+    <v-container class="container-section" style="margin-top:75px;">
 
 
 
@@ -146,8 +146,8 @@ this.$nextTick(() => {
     const tlBoxes = gsap.timeline({
         scrollTrigger: {
             trigger: ".container-section", // This should be the section AFTER the images
-            start: "top 30%",
-            end: "+=500",
+            start: "top 40%",
+            end: "+=900",
             scrub: 1,
             pin: true, 
             pinSpacing:true
@@ -162,7 +162,7 @@ this.$nextTick(() => {
     tlBoxes
         .to("#box1", {
             opacity: 1,
-            y: "0vh", 
+            y: "-20vh", 
             x: "0vw", 
             left: "50%",
             transform: "translateX(-50%)",
@@ -172,7 +172,7 @@ this.$nextTick(() => {
         })
         .to("#box2", {
             opacity: 1,
-            y: "20vh",
+            y: "0vh",
             x: "0vw", 
             left: "50%",
             transform: "translateX(-50%)",
@@ -182,7 +182,7 @@ this.$nextTick(() => {
         })
         .to("#box3", {
             opacity: 1,
-            y: "40vh", 
+            y: "20vh", 
             x: "0vw",
             left: "50%",
             transform: "translateX(-50%)",
@@ -341,7 +341,7 @@ display: flex;
 }
 @media (max-width: 768px) {
   .wow-text{
-    padding-top: 500px; 
+    padding-top: 400px; 
   }
 }
 

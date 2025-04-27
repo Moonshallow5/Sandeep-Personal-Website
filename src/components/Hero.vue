@@ -13,10 +13,21 @@
     :class="showMobileMenu ? 'open-menu' : 'closed-menu'"> 
     <div class="logo" > <a href="https://sandeep-personal-website.vercel.app/home" @click.prevent="handleNavClick('home')">Sandeep Singh</a></div>
     <ul class="nav-items">
-      <li> <a href="https://sandeep-personal-website.vercel.app/about-me" @click.prevent="handleNavClick('about-me')">About</a></li>
-      <li> <a href="https://sandeep-personal-website.vercel.app/work" @click.prevent="handleNavClick('work')">Work</a></li>
-      <li> <a href="https://sandeep-personal-website.vercel.app/projects" @click.prevent="handleNavClick('projects')">Projects</a></li>
-    </ul>
+      
+  <li :class="{ active: currentSection === 'about-me' }">
+    <a href="https://sandeep-personal-website.vercel.app/about-me" @click.prevent="handleNavClick('about-me')">About</a>
+  </li>
+
+  <li :class="{ active: currentSection === 'skill' }">
+    <a href="https://sandeep-personal-website.vercel.app/skill" @click.prevent="handleNavClick('skill')">Skills</a>
+  </li>
+  <li :class="{ active: currentSection === 'work' }">
+    <a href="https://sandeep-personal-website.vercel.app/work" @click.prevent="handleNavClick('work')">Work</a>
+  </li>
+  <li :class="{ active: currentSection === 'projects' }">
+    <a href="https://sandeep-personal-website.vercel.app/projects" @click.prevent="handleNavClick('projects')">Projects</a>
+  </li>
+</ul>
     
 
     </div>
@@ -117,14 +128,19 @@ export default{
       showMobileMenu: false,
       scrollProgress:0,
       showScrollNotification: true,
+      currentSection:'',
       };
     },
     beforeUnmount(){
       window.removeEventListener("scroll", this.handleScroll);
+      window.removeEventListener("scroll", this.onScroll);
+
+
 
     },
     mounted(){
       window.addEventListener("scroll", this.handleScroll);
+      window.addEventListener("scroll", this.onScroll);
       this.cycleWords()
     
 
@@ -197,6 +213,24 @@ export default{
       showMenu() {
         this.showMobileMenu = !this.showMobileMenu;
       },
+
+      onScroll() {
+    const sections = ['home', 'skill', 'about-me', 'work', 'projects'];
+    const scrollPos = window.scrollY + window.innerHeight / 2; 
+
+    for (const sec of sections) {
+      const element = document.getElementById(sec);
+      if (element) {
+        const rect = element.getBoundingClientRect();
+        const top = rect.top + window.scrollY;
+        const bottom = top + element.offsetHeight;
+        if (scrollPos >= top && scrollPos < bottom) {
+          this.currentSection = sec;
+          break;
+        }
+      }
+    }
+  },
   
 
 
@@ -423,6 +457,11 @@ justify-content: space-between;
 padding: 10px 10px;
 align-items: center;
 font-size: 22px;
+}
+.nav-items li.active a {
+  color: aqua;
+  font-weight: bold;
+  text-decoration: underline;
 }
 .nav-items {
 display: flex;
