@@ -511,7 +511,7 @@ display: none;
 .open-menu {
   opacity: 1;
   height: 30px;
-  padding-bottom: 159px;
+  padding-bottom: 200px;
   z-index: 1000;
 }
 .closed-menu {
