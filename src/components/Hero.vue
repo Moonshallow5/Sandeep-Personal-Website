@@ -406,11 +406,11 @@ p{
 
 .container-border {
   position: relative;
-  border: 2px solid white; /* Border wraps both navbar and card */
+  border: 2px solid white; 
   border-radius: 30px;
-  padding-top: 5px; /* Adjust to align with navbar */
+  padding-top: 5px; 
 
-  max-width: 1160px; /* Set a max width for large screens */
+  max-width: 93%; /* Set a max width for large screens */
 
   margin: auto;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -422,11 +422,11 @@ p{
 
   .intro-table {
  
-  color: black !important; /* Ensure text is black */
-  border: 1px solid rgba(0, 0, 0, 0.1); /* Optional: Light border for clarity */
-  background-color: transparent !important; /* Remove background */
-  box-shadow: none !important; /* Remove any shadow */
-  border: none !important; /* Remove the border */
+  color: black !important;
+  border: 1px solid rgba(0, 0, 0, 0.1); 
+  background-color: transparent !important; 
+  box-shadow: none !important; 
+  border: none !important; 
 }
 
 
