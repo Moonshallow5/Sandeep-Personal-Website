@@ -35,7 +35,7 @@ import Hero from "./Hero.vue";
 import Certificates from "./Certificates.vue";
 import Work from "./Work.vue";
 import AboutMe from "./AboutMe.vue";
-import gsap from "gsap"; // Import GSAP
+import gsap from "gsap"; 
 import ScrollTrigger from "gsap/ScrollTrigger";
 import Skills from "./Skills.vue";
 import Projects2 from "./Projects2.vue";

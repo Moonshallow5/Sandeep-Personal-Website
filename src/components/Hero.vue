@@ -1,6 +1,3 @@
-
-
-
 <template>
 
 <div class="container-border">
@@ -47,6 +44,16 @@
     <a href="https://cp.certmetrics.com/amazon/en/public/verify/credential/ff7a45e5f19f4a27b94834b5a54c054c" target="_blank" class="aws-badge">
       <v-img
         src="../assets/aws-certified-cloud-practitioner.png"
+        alt="AWS Certified Badge"
+        class="animated-image"
+        style=" width: 100px; height: auto;   display: block;"
+      />
+    </a>
+    </v-col>
+    <v-col cols="auto">
+    <a href="https://cp.certmetrics.com/amazon/en/public/verify/credential/9fafcf035edb4b8095a8adbea01375d9" target="_blank" class="aws-badge">
+      <v-img
+        src="../assets/aws-certified-solutions-architect-associate.png"
         alt="AWS Certified Badge"
         class="animated-image"
         style=" width: 100px; height: auto;   display: block;"
@@ -435,7 +442,7 @@ p{
   opacity: 1;
   transition: opacity 0.5s ease-in-out;
   font-size: 50px;
-  
+  white-space: nowrap; /* Prevents text from wrapping */
 }
 .nav-menu {
 border-radius: 100px;
@@ -562,7 +569,7 @@ display: none;
     font-size: 38px;
   }
 }
-@media (max-width: 420px) {
+@media (max-width: 440px) {
   .typewriter {
     font-size: 30px;
   }
