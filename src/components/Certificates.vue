@@ -1,6 +1,3 @@
-
-
-
 <template>
     <v-container class="d-flex " style="margin-top: 100px;" >
 
@@ -287,6 +284,14 @@ display: flex;
  
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
 
+
+}
+
+@media (max-width: 600px) {
+  .image-container {
+    width: 170px;
+    height: 200px;
+  }
 
 }
 .container-section {

@@ -9,12 +9,13 @@ export const works=[
         id: 1,
         company:'Pimato | Full Stack Engineer',
         description:[
-        'Worked on the frontend design of our team building portals for customers, resellers and stakeholders.',
-  'Utilized Vue.js and Vuetify to develop most of my frontend applications. Discussed with other members of my team, QA Engineers, backend team and stakeholders.',
-  'Developed Dataflex, a tool which allows users to upload text heavy documents and by using Amazon Textract, with a query, be able to have Q&A with users on relevant information on documents',
-  'Implemented scalable and maintainable infrastructure using Amazon Cloud Development Kit (CDK).',
-  'Built APIs for Ajax requests and tested them with Postman API.',
-  'Delivered our AI chatbot with numerous functionalities to the largest AI summit in Malaysia as the lead frontend developer.'
+            'Collaborated with the AI and the Full Stack team to build and maintain 20+ AWS Lambda functions written in Python, organized under 10 CloudFormation stacks, integrated with an API Gateway, and monitored with CloudWatch logs for scalable backend performance.',
+            'Led CRM development for ESGFlex by directly engaging with a university professor to gather business requirements, understand financial client needs in Malaysia, and translate them into actionable sprints for the team to implement across the platform.',
+            'Collaborated and created a tool which allows users to upload text heavy documents and by using Amazon Textract, with a query, be able to have Q&A with users on relevant information on documents',
+            'Built security authorizers in REST APIs with AWS API Gateway using JWT and lambda policies to avoid malicious activity onto our websites',
+            'Utilized Vue.js and Vuetify to develop most of my frontend applications. Discussed with other members of my team, QA Engineers, backend team and stakeholders.',
+            'Built APIs for Ajax requests and tested them with Postman API.',
+            'Delivered our AI chatbot with numerous functionalities to the largest AI summit in Malaysia as the lead frontend developer.'
         ],
         stack: [
             { name: 'Vue.js', icon: 'fa-brands fa-vuejs', color: '#000000' },

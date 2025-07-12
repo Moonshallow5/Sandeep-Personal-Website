@@ -7,6 +7,7 @@ import img5 from '@/assets/odin-project.png'
 import img6 from '@/assets/personal-web.png'
 import img7 from '@/assets/blog-api.png'
 import img8 from '@/assets/good_food.jpg'
+import img9 from '@/assets/t3-chat.png'
 export const projects=[
 
     {
@@ -95,8 +96,19 @@ export const projects=[
     },
 
     {
-
         id:7,
+        title:'T3 Chat App',
+        github: "https://github.com/Moonshallow5/T3-Chat-App-Shan-and-San",
+        image:{
+            url:img9 ,
+        },
+        description: "Built a full stack chat app with Vue.js, Vuetify, OpenAI, Express.js, Supabase and PostgreSQL. With global, and local chat memory, chat history retention, image upload functionlity, and more",
+    
+
+    },
+    {
+
+        id:8,
         title:'Drone Delivery System',
         github: "https://github.com/Moonshallow5/Ilp",
         image:{
